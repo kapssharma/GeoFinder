@@ -23,13 +23,13 @@ namespace GeoFinder.Model
 
         public Guid CreatedBy { get; set; }
         [ForeignKey("Id")]
-        public Users User { get; set; }
+        public Users CreatedByUser { get; set; }
 
         public DateTime CreatedOn { get; set; }
 
         public Guid ModifiedBy { get; set; }
         [ForeignKey("Id")]
-        public Users Users { get; set; }
+        public Users ModifiedByUser { get; set; }
 
         public DateTime ModifiedOn { get; set; }
     }

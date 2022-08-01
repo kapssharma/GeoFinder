@@ -11,36 +11,42 @@ namespace GeoFinder.Model
     public class Address
     {
         [Key]
-        public Guid AddressId { get; set; }
+        public  Guid Id { get; set; }
 
         [Required(ErrorMessage = "Please enter your City")]
         public string City { get; set; }
 
         [Required(ErrorMessage = "Please Select your State")]
-        [Display(Name = "Country")]
-        public int StateId { get; set; }
+        [Display(Name = "State")]
+        public Guid StateId { get; set; }
 
-        [ForeignKey("StateId")]
+        [ForeignKey("Id")]
         public virtual State State { get; set; }
 
         [Required(ErrorMessage = "Please Select your Country")]
-        [Display(Name ="Country")]
-        public int CountryId { get; set; }
+        [Display(Name = "Country")]
+        public Guid CountryId { get; set; }
 
-        [ForeignKey("CountryId")]
+        [ForeignKey("Id")]
         public virtual Country Country { get; set; }
 
         [Required(ErrorMessage = "Please enter your PostalCode")]
         public string PostalCode { get; set; }
 
+        public Guid CreatedBy { get; set; }
 
-        public String CreatedBy { get; set; }
+        [ForeignKey("Id")]
+        public  Users Users { get; set; }
 
         public DateTime CreatedOn { get; set; }
 
-        public String ModifiedBy { get; set; }
+        public Guid ModifiedBy { get; set; }
+        [ForeignKey("Id")]
+        public  Users User { get; set; }
 
         public DateTime ModifiedOn { get; set; }
+
+        public bool IsActive { get; set; }
 
     }
 }

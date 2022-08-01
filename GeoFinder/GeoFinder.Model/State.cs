@@ -11,21 +11,25 @@ namespace GeoFinder.Model
     public class State
     {
         [Key]
-        public int StateId { get; set; }
+        public int Id { get; set; }
 
         [Required]
-        public String StateName { get; set; }
+        public String Name { get; set; }
 
-        public int CountryId { get; set; }
+        public  Guid CountryId { get; set; }
 
-        [ForeignKey("CountryId")]
-        public virtual Country Country { get; set; }
+        [ForeignKey("Id")]
+        public  Country Country { get; set; }
 
-        public String CreatedBy { get; set; }
+        public Guid CreatedBy { get; set; }
+        [ForeignKey("Id")]
+        public Users User { get; set; }
 
         public DateTime CreatedOn { get; set; }
 
-        public String ModifiedBy { get; set; }
+        public Guid ModifiedBy { get; set; }
+        [ForeignKey("Id")]
+        public Users Users { get; set; }
 
         public DateTime ModifiedOn { get; set; }
     }

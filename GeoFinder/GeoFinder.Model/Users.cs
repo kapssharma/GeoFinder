@@ -11,36 +11,41 @@ namespace GeoFinder.Model
     public class Users
     {
         [Key]
-        public Guid UserId { get; set; }
+        public Guid Id { get; set; }
 
         [Required(ErrorMessage = "Please enter your UserName")]
-        public string UserName { get; set; }
+        public string Name { get; set; }
 
         [Required(ErrorMessage = "Please enter your EmailAdress")]
-        public string EmailAdress { get; set; }
+        [Display(Name = "Email")]
+        public string EmailAddress { get; set; }
 
         [Required(ErrorMessage = "Please enter your Password")]
         public string Password { get; set; }
 
         [Required(ErrorMessage = "Please select your Role")]
         [Display(Name = "Role")]
-        public int RoleId { get; set; }
+        public Guid RoleId { get; set; }
 
-        [ForeignKey("RoleId")]
+        [ForeignKey("Id")]
         public virtual Roles Roles { get; set; }
 
-        public String CreatedBy { get; set; }
+        public Guid CreatedBy { get; set; }
+        [ForeignKey("Id")]
+        public Users User { get; set; }
 
         public DateTime CreatedOn { get; set; }
 
-        public String ModifiedBy { get; set; }
+        public Guid ModifiedBy { get; set; }
+        [ForeignKey("Id")]
+        public Users user { get; set; }
 
         public DateTime ModifiedOn { get; set; }
 
         [Display(Name = "Address")]
-        public int AddressId { get; set; }
+        public Guid AddressId { get; set; }
 
-        [ForeignKey("AddressId")]
+        [ForeignKey("Id")]
         public virtual Address Address { get; set;}
 
         public bool IsActive { get; set; }

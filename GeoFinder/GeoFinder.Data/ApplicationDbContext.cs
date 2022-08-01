@@ -14,7 +14,6 @@ namespace GeoFinder.Data
        : base(options)
         { 
         }
-        //
         public DbSet<Roles> Roles { get; set; }
         public DbSet<Users> Users { get; set; }
         public DbSet<Address> Addresses { get; set; }

@@ -19,9 +19,9 @@ namespace GeoFinder.API.Controllers
         {
             var contentResponse = "";
             string apiEndPoint = this.configuration.GetSection("AppSettings")["NominatimAPIEndPoint"];
-            string setNominatimParms = string.Format(apiEndPoint + "lookup?osm_ids={0}", osm_id);
-            var restClient = new RestClient(setNominatimParms);
-            var request = new RestRequest(setNominatimParms, Method.Get);
+            string lookupUrl = string.Format(apiEndPoint + "lookup?osm_ids={0},", osm_id);
+            var restClient = new RestClient(lookupUrl);
+            var request = new RestRequest(lookupUrl, Method.Get);
             var response = await restClient.ExecuteAsync(request);
 
             if (response.IsSuccessful)

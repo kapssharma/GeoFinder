@@ -27,5 +27,6 @@ namespace GeoFinder.Model
         public Users Modifiedbyuser { get; set; }
 
         public DateTime ModifiedOn { get; set; }
+        public bool IsActive { get; set; }
     }
 }

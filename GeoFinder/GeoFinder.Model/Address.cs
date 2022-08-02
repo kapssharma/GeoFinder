@@ -28,7 +28,7 @@ namespace GeoFinder.Model
         public Guid CountryId { get; set; }
 
         [ForeignKey("Id")]
-        public virtual Country Country { get; set; }
+        public  Country Country { get; set; }
 
         [Required(ErrorMessage = "Please enter your PostalCode")]
         public string PostalCode { get; set; }
@@ -36,13 +36,13 @@ namespace GeoFinder.Model
         public Guid CreatedBy { get; set; }
 
         [ForeignKey("Id")]
-        public  Users CreatedByUser { get; set; }
+        public  Users Createdbyuser { get; set; }
 
         public DateTime CreatedOn { get; set; }
 
         public Guid ModifiedBy { get; set; }
         [ForeignKey("Id")]
-        public  Users ModifiedByUser { get; set; }
+        public  Users Modifiedbyuser { get; set; }
 
         public DateTime ModifiedOn { get; set; }
 

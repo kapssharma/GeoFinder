@@ -35,5 +35,24 @@ namespace GeoFinder.API.Controllers
             }
             return Ok(contentResponse);
         }
+        [HttpGet]
+        public async Task<IActionResult> status(string format)
+        {
+            var contentResponse = "";
+            string apiEndPoint = this.configuration.GetSection("AppSettings")["NominatimAPIEndPoint"];
+            var lookupUrl = string.Format(apiEndPoint + "status.php?format={0}", format);
+            var restClient = new RestClient(lookupUrl);
+            var request = new RestRequest(lookupUrl, Method.Get);
+            var response = await restClient.ExecuteAsync(request);
+            if (response.IsSuccessful)
+            {
+                contentResponse = response.Content;
+            }
+            else
+            {
+                throw new HttpRequestException(response.ErrorMessage);
+            }
+            return Ok(contentResponse);
+        }
     }
 }

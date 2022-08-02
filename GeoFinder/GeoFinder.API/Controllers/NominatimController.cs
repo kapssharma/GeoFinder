@@ -36,6 +36,26 @@ namespace GeoFinder.API.Controllers
             return Ok(contentResponse);
         }
         [HttpGet]
+        [Route("search")]
+        public async Task<IActionResult> search(string search, string format)
+        {
+            var contentResponse = "";
+            string apiEndPoint = this.configuration.GetSection("AppSettings")["NominatimAPIEndPoint"];
+            var SearchUrl = string.Format(apiEndPoint + "search?q={0}&format={1}", search, format);
+            var restClient = new RestClient(SearchUrl);
+            var request = new RestRequest(SearchUrl, Method.Get);
+            var response = await restClient.ExecuteAsync(request);
+            if (response.IsSuccessful)
+            {
+                contentResponse = response.Content;
+            }
+            else
+            {
+                throw new HttpRequestException(response.ErrorMessage);
+            }
+            return Ok(contentResponse);
+        }
+        [HttpGet]
         public async Task<IActionResult> status()
         {
             var contentResponse = "";

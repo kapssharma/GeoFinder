@@ -34,7 +34,7 @@ namespace GeoFinder.API.Controllers
               {
                   throw new BadParameterException("Response content" + response);
               }
-                return Ok(contentResponse);
+               return Ok(contentResponse);
          }
     }
 }

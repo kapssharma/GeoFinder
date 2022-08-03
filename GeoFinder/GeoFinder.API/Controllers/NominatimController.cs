@@ -1,6 +1,9 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using GeoFinder.API.Model;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RestSharp;
+using System.Diagnostics;
+using Microsoft.Extensions.Logging;
 
 namespace GeoFinder.API.Controllers
 {
@@ -8,10 +11,14 @@ namespace GeoFinder.API.Controllers
     [ApiController]
     public class NominatimController : ControllerBase
     {
-        private IConfiguration configuration;
-        public NominatimController(IConfiguration _configuration)
+        private readonly ILogger logger;
+        private readonly IConfiguration configuration;
+       
+    public NominatimController(IConfiguration _configuration, ILogger<NominatimController> _logger)
         {
             configuration = _configuration;
+            logger = _logger;
+
         }
 
         [HttpGet("{osm_id}")]
@@ -26,14 +33,19 @@ namespace GeoFinder.API.Controllers
 
             if (response.IsSuccessful)
             {
-
                 contentResponse = response.Content;
+                logger.LogInformation(1, "Log Details.");
             }
             else
             {
                 throw new HttpRequestException(response.ErrorMessage);
             }
+
             return Ok(contentResponse);
         }
     }
 }
+      
+           
+
+            

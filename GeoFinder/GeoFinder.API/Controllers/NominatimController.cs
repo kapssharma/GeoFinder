@@ -100,11 +100,10 @@ namespace GeoFinder.API.Controllers
                 throw new BadParameterException("input parameters are not correct for osm_id");
 
             var contentResponse = "";
-            string getNominatimBaseURL = this.configuration.GetSection("AppSettings")["GetNominatimBaseURL"];
-            string setNominatimParms = string.Format("lookup?osm_ids={0}", osm_id);
-            getNominatimBaseURL += setNominatimParms;
-            var restClient = new RestClient(getNominatimBaseURL);
-            var request = new RestRequest(getNominatimBaseURL, Method.Get);
+            string apiEndPoint = this.configuration.GetSection("AppSettings")["GetNominatimBaseURL"];
+            string lookupURL = string.Format(apiEndPoint + "lookup?osm_ids={0}", osm_id);
+            var restClient = new RestClient(lookupURL);
+            var request = new RestRequest(lookupURL, Method.Get);
             var response = await restClient.ExecuteAsync(request);
 
             if (response.IsSuccessful)
@@ -117,5 +116,6 @@ namespace GeoFinder.API.Controllers
             }
             return Ok(contentResponse);
         }
-    }
+        
+      }
 }

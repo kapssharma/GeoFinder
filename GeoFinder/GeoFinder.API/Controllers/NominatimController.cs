@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using GeoFinder.Model;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RestSharp;
 
@@ -75,5 +76,46 @@ namespace GeoFinder.API.Controllers
             }
             return Ok(contentResponse);
         }
+        [HttpGet]
+        [Route("Authenticate")]
+        public ActionResult Authenticate()
+        {
+            var userList = Getuserlist();
+            var User_API_Tokenlist = GetUser_API_Tokenlist();
+            Request.Headers.Add("Authorization", "11223344-5566-7788-99AA-BBCCDDEEFF99");
+            string token = HttpContext.Request.Headers["Authorization"];
+            bool isExist = User_API_Tokenlist.Select(x => x.Id == Guid.Parse(token)).FirstOrDefault();
+            if (isExist)
+            {
+                return Ok();
+            }
+            else
+            {
+                return Unauthorized();
+            }
+        }
+        [HttpGet]
+        [Route("UserList")]
+        public List<Users> Getuserlist()
+        {
+            List<Users> authors = new List<Users>
+        {
+            new Users { Id= new Guid("11223344-5566-7788-99AA-BBCCDDEEFF00"), Name = "Ramzan", EmailAddress = "Ramzan567@gmail.com" },
+        };
+            return authors;
+        }
+
+        [HttpGet]
+        [Route("TokenListList")]
+        public List<User_API_Token> GetUser_API_Tokenlist()
+        {
+            List<User_API_Token> User_API_Token = new List<User_API_Token>
+           {
+             new User_API_Token { Id= new Guid("11223344-5566-7788-99AA-BBCCDDEEFF99"), UserId= new Guid("11223344-5566-7788-99AA-BBCCDDEEFF00") },
+           };
+            return User_API_Token;
+        }
     }
 }
+
+

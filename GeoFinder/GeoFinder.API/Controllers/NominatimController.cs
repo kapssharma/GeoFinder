@@ -1,4 +1,5 @@
-﻿using GeoFinder.Model;
+﻿using GeoFinder.Data;
+using GeoFinder.Model;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RestSharp;
@@ -7,39 +8,20 @@ namespace GeoFinder.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [TypeFilter(typeof(CustomAuthorization))]
     public class NominatimController : ControllerBase
     {
+        private ApplicationDbContext  context;
         private IConfiguration configuration;
-        public NominatimController(IConfiguration _configuration)
+        public NominatimController(IConfiguration _configuration, ApplicationDbContext _context )
         {
             configuration = _configuration;
+            context = _context; 
         }
 
         [HttpGet]
-        public async Task<IActionResult> Search(string search, string format)
-        {
-            var contentResponse = "";
-            string apiEndPoint = this.configuration.GetSection("AppSettings")["NominatimAPIEndPoint"];
-            var searchurl = string.Format(apiEndPoint + "search?q={0}&format={1}", search, format);
-            var restClient = new RestClient(searchurl);
-            var request = new RestRequest(searchurl, Method.Get);
-            var response = await restClient.ExecuteAsync(request);
-
-            if (response.IsSuccessful)
-            {
-
-                contentResponse = response.Content;
-            }
-            else
-            {
-                throw new HttpRequestException(response.ErrorMessage);
-            }
-
-            return Ok(contentResponse);
-        }
-        [HttpGet]
-        [Route("search")]
-        public async Task<IActionResult> search(string search, string format)
+        [Route("Search")]
+        public async Task<IActionResult> Search(string? search, string? format)
         {
             var contentResponse = "";
             string apiEndPoint = this.configuration.GetSection("AppSettings")["NominatimAPIEndPoint"];
@@ -53,13 +35,15 @@ namespace GeoFinder.API.Controllers
             }
             else
             {
-                throw new HttpRequestException(response.ErrorMessage);
+              throw new HttpRequestException(response.ErrorMessage);
             }
             return Ok(contentResponse);
         }
         [HttpGet]
-        public async Task<IActionResult> status()
+        [Route("Status")]
+        public async Task<IActionResult> Status()
         {
+
             var contentResponse = "";
             string apiEndPoint = this.configuration.GetSection("AppSettings")["NominatimAPIEndPoint"];
             var statusUrl = string.Format(apiEndPoint + "status.php?format=json");
@@ -75,47 +59,55 @@ namespace GeoFinder.API.Controllers
                 throw new HttpRequestException(response.ErrorMessage);
             }
             return Ok(contentResponse);
-        }
-        [HttpGet]
-        [Route("Authenticate")]
-        public ActionResult Authenticate()
-        {
-            var userList = Getuserlist();
-            var User_API_Tokenlist = GetUser_API_Tokenlist();
-            Request.Headers.Add("Authorization", "11223344-5566-7788-99AA-BBCCDDEEFF99");
-            string token = HttpContext.Request.Headers["Authorization"];
-            bool isExist = User_API_Tokenlist.Select(x => x.Id == Guid.Parse(token)).FirstOrDefault();
-            if (isExist)
-            {
-                return Ok();
-            }
-            else
-            {
-                return Unauthorized();
-            }
-        }
-        [HttpGet]
-        [Route("UserList")]
-        public List<Users> Getuserlist()
-        {
-            List<Users> authors = new List<Users>
-        {
-            new Users { Id= new Guid("11223344-5566-7788-99AA-BBCCDDEEFF00"), Name = "Ramzan", EmailAddress = "Ramzan567@gmail.com" },
-        };
-            return authors;
+
         }
 
         [HttpGet]
-        [Route("TokenListList")]
-        public List<User_API_Token> GetUser_API_Tokenlist()
+        [Route("Reverse")]
+        public async Task<IActionResult> Reverse(string? formate, string? latitude, string? longitute)
         {
-            List<User_API_Token> User_API_Token = new List<User_API_Token>
-           {
-             new User_API_Token { Id= new Guid("11223344-5566-7788-99AA-BBCCDDEEFF99"), UserId= new Guid("11223344-5566-7788-99AA-BBCCDDEEFF00") },
-           };
-            return User_API_Token;
+            var contentResponse = "";
+            string apiEndPoint = this.configuration.GetSection("AppSettings")["NominatimAPIEndPoint"];
+            string reverseURL = string.Format(apiEndPoint + "reverse?format={0}&lat={1}&lon={2}", formate, latitude, longitute);
+            var restClient = new RestClient(reverseURL);
+            var request = new RestRequest(reverseURL, Method.Get);
+            var response = await restClient.ExecuteAsync(request);
+
+            if (response.IsSuccessful)
+            {
+                contentResponse = response.Content;
+            }
+            else
+            {
+                throw new HttpRequestException(response.ErrorMessage);
+            }
+            return Ok(contentResponse);
         }
+
+        [HttpGet]
+        [Route("Lookup")]
+        public async Task<IActionResult> Lookup(string? osm_id)
+        {
+            var contentResponse = "";
+            string apiEndPoint = this.configuration.GetSection("AppSettings")["GetNominatimBaseURL"];
+            string lookupURL = string.Format(apiEndPoint + "lookup?osm_ids={0}", osm_id);
+            var restClient = new RestClient(lookupURL);
+            var request = new RestRequest(lookupURL, Method.Get);
+            var response = await restClient.ExecuteAsync(request);
+
+            if (response.IsSuccessful)
+            {
+                contentResponse = response.Content;
+            }
+            else
+            {
+                throw new HttpRequestException(response.ErrorMessage);
+            }
+            return Ok(contentResponse);
+        }
+
     }
 }
+
 
 

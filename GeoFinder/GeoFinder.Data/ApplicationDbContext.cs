@@ -19,5 +19,6 @@ namespace GeoFinder.Data
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Country> Countries { get; set; }
         public DbSet<State> States { get; set; }
+        public DbSet<Token> Tokens { get; set; }
     }
 }

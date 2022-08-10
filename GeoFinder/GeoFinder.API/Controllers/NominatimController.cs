@@ -11,17 +11,16 @@ namespace GeoFinder.API.Controllers
     [TypeFilter(typeof(CustomAuthorization))]
     public class NominatimController : ControllerBase
     {
-        private ApplicationDbContext  context;
+        
         private IConfiguration configuration;
-        public NominatimController(IConfiguration _configuration, ApplicationDbContext _context )
+        public NominatimController(IConfiguration _configuration )
         {
-            configuration = _configuration;
-            context = _context; 
+         configuration = _configuration;
         }
 
         [HttpGet]
         [Route("Search")]
-        public async Task<IActionResult> Search(string? search, string? format)
+        public async Task<IActionResult> Search(string search, string format)
         {
             var contentResponse = "";
             string apiEndPoint = this.configuration.GetSection("AppSettings")["NominatimAPIEndPoint"];
@@ -64,7 +63,7 @@ namespace GeoFinder.API.Controllers
 
         [HttpGet]
         [Route("Reverse")]
-        public async Task<IActionResult> Reverse(string? formate, string? latitude, string? longitute)
+        public async Task<IActionResult> Reverse(string formate, string latitude, string longitute)
         {
             var contentResponse = "";
             string apiEndPoint = this.configuration.GetSection("AppSettings")["NominatimAPIEndPoint"];
@@ -86,7 +85,7 @@ namespace GeoFinder.API.Controllers
 
         [HttpGet]
         [Route("Lookup")]
-        public async Task<IActionResult> Lookup(string? osm_id)
+        public async Task<IActionResult> Lookup(string osm_id)
         {
             var contentResponse = "";
             string apiEndPoint = this.configuration.GetSection("AppSettings")["GetNominatimBaseURL"];

@@ -31,7 +31,7 @@ namespace GeoFinder.API.Controllers
             var response = await restClient.ExecuteAsync(request);
             if (response.IsSuccessful)
             {
-                contentResponse = response.Content;
+              contentResponse = response.Content;
             }
             else
             {

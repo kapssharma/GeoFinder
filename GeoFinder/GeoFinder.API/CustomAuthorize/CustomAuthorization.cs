@@ -21,22 +21,22 @@ namespace GeoFinder.API
         }
         public void OnAuthorization(AuthorizationFilterContext context)
         {
-            // authorization
-            string user = context.HttpContext.Request.Headers["Authorization"];
-            if (string.IsNullOrEmpty(user))
-            {
-                context.Result = new JsonResult(new { message = "Please Enter Token" }) { StatusCode = StatusCodes.Status400BadRequest };
-            }
-            else if (!string.IsNullOrEmpty(user))
-            {
-                var split = user.Split("Bearer");
-                user = split[1];
-                var isExist = Context.Tokens.Select(x => x.Id.ToString() == user.Trim()).FirstOrDefault();
-                if (!isExist)
-                {
-                    context.Result = new JsonResult(new { message = "You have Enter Invalid Token" }) { StatusCode = StatusCodes.Status401Unauthorized };
-                }
-            }
+            //// authorization
+            //string user = context.HttpContext.Request.Headers["Authorization"];
+            //if (string.IsNullOrEmpty(user))
+            //{
+            //    context.Result = new JsonResult(new { message = "Please Enter Token" }) { StatusCode = StatusCodes.Status400BadRequest };
+            //}
+            //else if (!string.IsNullOrEmpty(user))
+            //{
+            //    var split = user.Split("Bearer");
+            //    user = split[1];
+            //    var isExist = Context.Tokens.Select(x => x.Id.ToString() == user.Trim()).FirstOrDefault();
+            //    if (!isExist)
+            //    {
+            //        context.Result = new JsonResult(new { message = "You have Enter Invalid Token" }) { StatusCode = StatusCodes.Status401Unauthorized };
+            //    }
+            //}
         }
     }
 }

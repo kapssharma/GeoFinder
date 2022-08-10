@@ -85,7 +85,7 @@ namespace GeoFinder.API.Controllers
                 }
                 else
                 {
-                    logger.LogError("Bad Request No Data Found");
+                    logger.LogError("Bad request" + response);
                     throw new HttpRequestException(response.ErrorMessage);
                 }
 

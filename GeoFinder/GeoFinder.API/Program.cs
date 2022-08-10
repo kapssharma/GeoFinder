@@ -1,44 +1,43 @@
-using NLog;
-using NLog.Web;
+using FluentAssertions.Common;
+using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 
-var logger = NLog.LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
-logger.Debug("init main");
-
-try
+var builder = WebApplication.CreateBuilder(args);
+builder.Host.ConfigureLogging(logging =>
 {
-    var builder = WebApplication.CreateBuilder(args);
-    builder.Services.AddControllers();
-    // NLog: Setup NLog for Dependency injection
-    builder.Logging.ClearProviders();
-    builder.Host.UseNLog();
-    builder.Logging.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Trace);
-    builder.Host.UseNLog();
-    builder.Services.AddEndpointsApiExplorer();
-    builder.Services.AddSwaggerGen();
-    var app = builder.Build();
+    logging.ClearProviders();
+    logging.AddConsole();
+    logging.AddFile($@"{Directory.GetCurrentDirectory()}/Logs/log.txt");
 
-    // Configure the HTTP request pipeline.
-    if (app.Environment.IsDevelopment())
-    {
-        app.UseSwagger();
-        app.UseSwaggerUI();
-        app.UseHsts();
-    }
-    
-    app.UseHttpsRedirection();
-    app.UseStaticFiles();
+});
 
-    app.UseRouting();
-
-    app.UseAuthorization();
-
-    app.MapControllers();
-
-
-    app.Run();
-}
-catch (Exception exception)
+//add for enum 
+builder.Services.AddControllers().AddJsonOptions(options =>
 {
-    logger.Error(exception, "Stopped program because of exception");
-    throw;
+    options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+});
+
+// For Entity Framework
+//builder.Services.AddControllers();
+
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+
 }
+
+app.UseHttpsRedirection();
+
+app.UseAuthorization();
+
+app.MapControllers();
+
+app.Run();

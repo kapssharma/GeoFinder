@@ -2,18 +2,22 @@
 using Microsoft.AspNetCore.Mvc;
 using RestSharp;
 using System.Net.Http.Headers;
+using GeoFinder.Utility.Services.Interface;
+using GeoFinder.Utility.Models.Request;
 
 namespace GeoFinder.API.Controllers
 {
-      [Route("api/[controller]")]
-      [ApiController]
-      public class NominatimController : ControllerBase
-      {
-          private IConfiguration configuration;
-          public NominatimController(IConfiguration _configuration)
-          {
-              configuration = _configuration;
-          }
+    [Route("api/[controller]")]
+    [ApiController]
+    public class NominatimController : ControllerBase
+    {
+        private IConfiguration configuration;
+        private IGeoFinderService _geoFinderService;
+        public NominatimController(IConfiguration _configuration, IGeoFinderService geoFinderService)
+        {
+            configuration = _configuration;
+            _geoFinderService = geoFinderService;
+        }
 
         [HttpGet]
         [Route("Search")]
@@ -116,6 +120,36 @@ namespace GeoFinder.API.Controllers
             }
             return Ok(contentResponse);
         }
-        
-      }
+
+        [HttpPost]
+        [Route("SignUp")]
+        public async Task<IActionResult> SignUp(SignUpViewModel signUpViewModel)
+        {
+            if (signUpViewModel != null)
+            {
+                var response = await _geoFinderService.SignUp(signUpViewModel);
+                if (response.Success)
+                {
+                    return Ok(response);
+                }
+                else
+                {
+                    return NotFound(response);
+                }
+            }
+            else
+            {
+                return NotFound("Model is Null");
+            }
+
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> getCountries()
+        {
+            var response = await _geoFinderService.getCountries();
+            return Ok(response);
+        }
+
+    }
 }

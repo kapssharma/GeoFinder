@@ -14,13 +14,13 @@ namespace GeoFinder.Model
         public  Guid Id { get; set; }
 
         [Required(ErrorMessage = "Please enter your City")]
-        public string City { get; set; }
+        public string? City { get; set; }
 
         [Required(ErrorMessage = "Please select your State")]
         [Display(Name = "State")]
-        public Guid StateId { get; set; }
+        public int StateId { get; set; }
 
-        [ForeignKey("Id")]
+        [ForeignKey("StateId")]
         public virtual State State { get; set; }
 
         [Required(ErrorMessage = "Please select your Country")]
@@ -28,21 +28,21 @@ namespace GeoFinder.Model
         public Guid CountryId { get; set; }
 
         [ForeignKey("Id")]
-        public  Country Country { get; set; }
+        public  Country? Country { get; set; }
 
         [Required(ErrorMessage = "Please enter your PostalCode")]
-        public string PostalCode { get; set; }
+        public string? PostalCode { get; set; }
 
         public Guid CreatedBy { get; set; }
 
-        [ForeignKey("Id")]
-        public  Users Createdbyuser { get; set; }
+        [ForeignKey("CreatedById")]
+        public Users Createdbyuser { get; set; }
 
         public DateTime CreatedOn { get; set; }
 
-        public Guid ModifiedBy { get; set; }
-        [ForeignKey("Id")]
-        public  Users Modifiedbyuser { get; set; }
+        //public Guid ModifiedBy { get; set; }
+        //[ForeignKey("ModifiedById")]
+        //public Users? Modifiedbyuser { get; set; }
 
         public DateTime ModifiedOn { get; set; }
 

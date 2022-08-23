@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\project\\GeoFinder\\GeoFinder\\GeoFinder.API\\GeoFinder.API.csproj": {}
+    "E:\\Rahul\\kapssharma\\Geo-Finder-API 2\\Geo-Finder-API\\GeoFinder\\GeoFinder.API\\GeoFinder.API.csproj": {}
   },
   "projects": {
-    "D:\\project\\GeoFinder\\GeoFinder\\GeoFinder.API\\GeoFinder.API.csproj": {
+    "E:\\Rahul\\kapssharma\\Geo-Finder-API 2\\Geo-Finder-API\\GeoFinder\\GeoFinder.API\\GeoFinder.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\project\\GeoFinder\\GeoFinder\\GeoFinder.API\\GeoFinder.API.csproj",
+        "projectUniqueName": "E:\\Rahul\\kapssharma\\Geo-Finder-API 2\\Geo-Finder-API\\GeoFinder\\GeoFinder.API\\GeoFinder.API.csproj",
         "projectName": "GeoFinder.API",
-        "projectPath": "D:\\project\\GeoFinder\\GeoFinder\\GeoFinder.API\\GeoFinder.API.csproj",
-        "packagesPath": "C:\\Users\\kapil\\.nuget\\packages\\",
-        "outputPath": "D:\\project\\GeoFinder\\GeoFinder\\GeoFinder.API\\obj\\",
+        "projectPath": "E:\\Rahul\\kapssharma\\Geo-Finder-API 2\\Geo-Finder-API\\GeoFinder\\GeoFinder.API\\GeoFinder.API.csproj",
+        "packagesPath": "C:\\Users\\digisoft\\.nuget\\packages\\",
+        "outputPath": "E:\\Rahul\\kapssharma\\Geo-Finder-API 2\\Geo-Finder-API\\GeoFinder\\GeoFinder.API\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\kapil\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\digisoft\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -27,13 +23,22 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.telerik.com/nuget": {},
           "https://pkgs.dev.azure.com/Rodex/_packaging/Rodex/nuget/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "E:\\Rahul\\kapssharma\\Geo-Finder-API 2\\Geo-Finder-API\\GeoFinder\\GeoFinder.Data\\GeoFinder.Data.csproj": {
+                "projectPath": "E:\\Rahul\\kapssharma\\Geo-Finder-API 2\\Geo-Finder-API\\GeoFinder\\GeoFinder.Data\\GeoFinder.Data.csproj"
+              },
+              "E:\\Rahul\\kapssharma\\Geo-Finder-API 2\\Geo-Finder-API\\GeoFinder\\GeoFinder.Model\\GeoFinder.Model.csproj": {
+                "projectPath": "E:\\Rahul\\kapssharma\\Geo-Finder-API 2\\Geo-Finder-API\\GeoFinder\\GeoFinder.Model\\GeoFinder.Model.csproj"
+              },
+              "E:\\Rahul\\kapssharma\\Geo-Finder-API 2\\Geo-Finder-API\\GeoFinder\\GeoFinder.Utility\\GeoFinder.Utility.csproj": {
+                "projectPath": "E:\\Rahul\\kapssharma\\Geo-Finder-API 2\\Geo-Finder-API\\GeoFinder\\GeoFinder.Utility\\GeoFinder.Utility.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -46,6 +51,20 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.8, )"
+            },
+            "RestSharp": {
+              "target": "Package",
+              "version": "[108.0.1, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
@@ -69,7 +88,208 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\Rahul\\kapssharma\\Geo-Finder-API 2\\Geo-Finder-API\\GeoFinder\\GeoFinder.Data\\GeoFinder.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Rahul\\kapssharma\\Geo-Finder-API 2\\Geo-Finder-API\\GeoFinder\\GeoFinder.Data\\GeoFinder.Data.csproj",
+        "projectName": "GeoFinder.Data",
+        "projectPath": "E:\\Rahul\\kapssharma\\Geo-Finder-API 2\\Geo-Finder-API\\GeoFinder\\GeoFinder.Data\\GeoFinder.Data.csproj",
+        "packagesPath": "C:\\Users\\digisoft\\.nuget\\packages\\",
+        "outputPath": "E:\\Rahul\\kapssharma\\Geo-Finder-API 2\\Geo-Finder-API\\GeoFinder\\GeoFinder.Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\digisoft\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/Rodex/_packaging/Rodex/nuget/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "E:\\Rahul\\kapssharma\\Geo-Finder-API 2\\Geo-Finder-API\\GeoFinder\\GeoFinder.Model\\GeoFinder.Model.csproj": {
+                "projectPath": "E:\\Rahul\\kapssharma\\Geo-Finder-API 2\\Geo-Finder-API\\GeoFinder\\GeoFinder.Model\\GeoFinder.Model.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.8, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\Rahul\\kapssharma\\Geo-Finder-API 2\\Geo-Finder-API\\GeoFinder\\GeoFinder.Model\\GeoFinder.Model.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Rahul\\kapssharma\\Geo-Finder-API 2\\Geo-Finder-API\\GeoFinder\\GeoFinder.Model\\GeoFinder.Model.csproj",
+        "projectName": "GeoFinder.Model",
+        "projectPath": "E:\\Rahul\\kapssharma\\Geo-Finder-API 2\\Geo-Finder-API\\GeoFinder\\GeoFinder.Model\\GeoFinder.Model.csproj",
+        "packagesPath": "C:\\Users\\digisoft\\.nuget\\packages\\",
+        "outputPath": "E:\\Rahul\\kapssharma\\Geo-Finder-API 2\\Geo-Finder-API\\GeoFinder\\GeoFinder.Model\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\digisoft\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/Rodex/_packaging/Rodex/nuget/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.8, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\Rahul\\kapssharma\\Geo-Finder-API 2\\Geo-Finder-API\\GeoFinder\\GeoFinder.Utility\\GeoFinder.Utility.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Rahul\\kapssharma\\Geo-Finder-API 2\\Geo-Finder-API\\GeoFinder\\GeoFinder.Utility\\GeoFinder.Utility.csproj",
+        "projectName": "GeoFinder.Utility",
+        "projectPath": "E:\\Rahul\\kapssharma\\Geo-Finder-API 2\\Geo-Finder-API\\GeoFinder\\GeoFinder.Utility\\GeoFinder.Utility.csproj",
+        "packagesPath": "C:\\Users\\digisoft\\.nuget\\packages\\",
+        "outputPath": "E:\\Rahul\\kapssharma\\Geo-Finder-API 2\\Geo-Finder-API\\GeoFinder\\GeoFinder.Utility\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\digisoft\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/Rodex/_packaging/Rodex/nuget/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "E:\\Rahul\\kapssharma\\Geo-Finder-API 2\\Geo-Finder-API\\GeoFinder\\GeoFinder.Data\\GeoFinder.Data.csproj": {
+                "projectPath": "E:\\Rahul\\kapssharma\\Geo-Finder-API 2\\Geo-Finder-API\\GeoFinder\\GeoFinder.Data\\GeoFinder.Data.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -20,20 +20,21 @@ namespace GeoFinder.Utility.Repository
             _db = db;
         }
 
-        public Task<BaseResponse> getCountries()
+        public async Task<List<GetCountries>> getCountries()
         {
-            BaseResponse signUpResponse = new BaseResponse();
+            List<GetCountries> countries = new List<GetCountries>();
             try
             {
-                var countries = _db.Countries;
-                List<string> countries1 = _db.Countries;
-                return countries1;
+                countries = _db.Countries.Select(x => new GetCountries()
+                {
+                    CountryID = x.Id,
+                    CountryName = x.Name
+                }).ToList();
+                return countries;
             }
             catch (Exception ex)
             {
-                signUpResponse.Success = false;
-                signUpResponse.Message = ex.Message;
-                return signUpResponse;
+                return countries;
             }
         }
 

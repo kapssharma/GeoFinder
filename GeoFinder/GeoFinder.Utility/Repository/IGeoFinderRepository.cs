@@ -11,6 +11,6 @@ namespace GeoFinder.Utility.Repository
     public interface IGeoFinderRepository
     {
         Task<SignUpResponse> SignUp(SignUpViewModel signUpViewModel);
-        Task<BaseResponse> getCountries();
+        Task<List<GetCountries>> getCountries();
     }
 }

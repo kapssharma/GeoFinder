@@ -125,31 +125,18 @@ namespace GeoFinder.API.Controllers
         [Route("SignUp")]
         public async Task<IActionResult> SignUp(SignUpViewModel signUpViewModel)
         {
-            if (signUpViewModel != null)
+            var response = await _geoFinderService.SignUp(signUpViewModel);
+            if (response.Success)
             {
-                var response = await _geoFinderService.SignUp(signUpViewModel);
-                if (response.Success)
-                {
-                    return Ok(response);
-                }
-                else
-                {
-                    return NotFound(response);
-                }
+                return Ok(response);
             }
             else
             {
-                return NotFound("Model is Null");
+                return NotFound(response);
             }
-
         }
 
-        [HttpGet]
-        public async Task<IActionResult> getCountries()
-        {
-            var response = await _geoFinderService.getCountries();
-            return Ok(response);
-        }
+       
 
     }
 }

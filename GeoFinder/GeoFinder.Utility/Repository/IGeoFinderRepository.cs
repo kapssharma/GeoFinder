@@ -12,5 +12,6 @@ namespace GeoFinder.Utility.Repository
     {
         Task<SignUpResponse> SignUp(SignUpViewModel signUpViewModel);
         Task<List<GetCountries>> getCountries();
+        Task<List<States>> GetState(string countryID);
     }
 }

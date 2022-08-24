@@ -38,6 +38,24 @@ namespace GeoFinder.Utility.Repository
             }
         }
 
+        public async Task<List<States>> GetState(string countryID)
+        {
+            List<States> getStates = new List<States>();
+            try
+            {
+                getStates = _db.States.Where(x => x.CountryId.ToString() == countryID & x.IsActive == true).Select(x => new States()
+                {
+                    StateId = (x.Id).ToString(),
+                    Name = x.Name
+                }).ToList();
+                return getStates;
+            }
+            catch (Exception ex)
+            {
+                return getStates;
+            }
+        }
+
         public async Task<SignUpResponse> SignUp(SignUpViewModel signUpViewModel)
         {
             SignUpResponse signUpResponse = new SignUpResponse();
@@ -52,17 +70,15 @@ namespace GeoFinder.Utility.Repository
 
                 _db.Users.Add(newUsers);
 
-                Token newToken = new Token();
+                UserToken newToken = new UserToken();
                 newToken.UserId = newUsers.Id;
-                newToken.CreatedBy = newUsers.Id;
                 newToken.CreatedOn = DateTime.Now;
                 newToken.IsActive = true;
-                newToken.TokenName = Guid.NewGuid().ToString().Replace("-", "");
+                newToken.TokenTypeID = _db.TokenType.Where(x => x.Token_Description == "Demo" && x.IsActive == true).Select(x => x.TokenTypeID).FirstOrDefault();
 
-                _db.Tokens.Add(newToken);
+                _db.UserTokens.Add(newToken);
                 _db.SaveChanges();
                 signUpResponse.Success = true;
-                signUpResponse.Token = newToken.TokenName;
                 signUpResponse.Message = "SignUp Successfully";
                 return signUpResponse;
             }

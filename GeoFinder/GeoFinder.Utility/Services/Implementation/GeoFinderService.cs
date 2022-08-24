@@ -20,12 +20,16 @@ namespace GeoFinder.Utility.Services.Implementation
             _geoFinderRepository = geoFinderRepository;
         }
 
-        public async Task<List<GetCountries>> getCountries()
+        public async Task<List<GetCountries>> GetCountries()
         {
             var result = await _geoFinderRepository.getCountries();
             return result;
         }
-
+        public async Task<List<States>> GetState(string stateID)
+        {
+            var result = await _geoFinderRepository.GetState(stateID);
+            return result;
+        }
         public async Task<SignUpResponse> SignUp(SignUpViewModel signUpViewModel)
         {
             var response = await _geoFinderRepository.SignUp(signUpViewModel);

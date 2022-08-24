@@ -135,8 +135,5 @@ namespace GeoFinder.API.Controllers
                 return NotFound(response);
             }
         }
-
-       
-
     }
 }

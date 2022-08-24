@@ -11,6 +11,7 @@ namespace GeoFinder.Utility.Services.Interface
     public interface IGeoFinderService
     {
         Task<SignUpResponse> SignUp(SignUpViewModel signUpViewModel);
-        Task<List<GetCountries>> getCountries();
+        Task<List<GetCountries>> GetCountries();
+        Task<List<States>> GetState(string countryID);
     }
 }

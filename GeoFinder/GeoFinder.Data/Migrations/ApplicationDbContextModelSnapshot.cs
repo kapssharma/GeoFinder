@@ -25,6 +25,7 @@ namespace GeoFinder.Data.Migrations
             modelBuilder.Entity("GeoFinder.Model.Address", b =>
                 {
                     b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("City")
@@ -37,16 +38,13 @@ namespace GeoFinder.Data.Migrations
                     b.Property<Guid>("CreatedBy")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("CreatedById")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
-                    b.Property<DateTime>("ModifiedOn")
+                    b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("PostalCode")
@@ -58,8 +56,7 @@ namespace GeoFinder.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CreatedById")
-                        .IsUnique();
+                    b.HasIndex("CountryId");
 
                     b.HasIndex("StateId");
 
@@ -142,46 +139,22 @@ namespace GeoFinder.Data.Migrations
                     b.ToTable("States");
                 });
 
-            modelBuilder.Entity("GeoFinder.Model.Token", b =>
+            modelBuilder.Entity("GeoFinder.Model.TokenType", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<Guid>("TokenTypeID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("CreatedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("Expiry")
-                        .HasColumnType("datetime2");
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
-                    b.Property<Guid?>("ModifiedBy")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("ModifiedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("TokenName")
+                    b.Property<string>("Token_Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
+                    b.HasKey("TokenTypeID");
 
-                    b.HasKey("Id");
-
-                    b.HasIndex("CreatedBy");
-
-                    b.HasIndex("ModifiedBy");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Tokens");
+                    b.ToTable("TokenType");
                 });
 
             modelBuilder.Entity("GeoFinder.Model.Users", b =>
@@ -224,20 +197,58 @@ namespace GeoFinder.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("AddressId")
+                        .IsUnique()
+                        .HasFilter("[AddressId] IS NOT NULL");
+
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("GeoFinder.Model.UserToken", b =>
+                {
+                    b.Property<Guid>("TokenID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("CreatedByUserID")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<Guid?>("ModifyByUserID")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("ModifyOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("TokenTypeID")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("TokenID");
+
+                    b.HasIndex("CreatedByUserID");
+
+                    b.HasIndex("ModifyByUserID");
+
+                    b.HasIndex("TokenTypeID");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserTokens");
                 });
 
             modelBuilder.Entity("GeoFinder.Model.Address", b =>
                 {
-                    b.HasOne("GeoFinder.Model.Users", "Createdbyuser")
-                        .WithOne("Address")
-                        .HasForeignKey("GeoFinder.Model.Address", "CreatedById")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("GeoFinder.Model.Country", "Country")
                         .WithMany()
-                        .HasForeignKey("Id")
+                        .HasForeignKey("CountryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -248,8 +259,6 @@ namespace GeoFinder.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("Country");
-
-                    b.Navigation("Createdbyuser");
 
                     b.Navigation("State");
                 });
@@ -276,46 +285,60 @@ namespace GeoFinder.Data.Migrations
                     b.Navigation("Country");
                 });
 
-            modelBuilder.Entity("GeoFinder.Model.Token", b =>
-                {
-                    b.HasOne("GeoFinder.Model.Users", "CreatedByUser")
-                        .WithMany()
-                        .HasForeignKey("CreatedBy")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("GeoFinder.Model.Users", "ModifiedByuser")
-                        .WithMany()
-                        .HasForeignKey("ModifiedBy");
-
-                    b.HasOne("GeoFinder.Model.Users", "User_Id")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("CreatedByUser");
-
-                    b.Navigation("ModifiedByuser");
-
-                    b.Navigation("User_Id");
-                });
-
             modelBuilder.Entity("GeoFinder.Model.Users", b =>
                 {
+                    b.HasOne("GeoFinder.Model.Address", "Address")
+                        .WithOne("Createdbyuser")
+                        .HasForeignKey("GeoFinder.Model.Users", "AddressId");
+
                     b.HasOne("GeoFinder.Model.Users", "Createdbyuser")
                         .WithOne("Modifiedbyuser")
                         .HasForeignKey("GeoFinder.Model.Users", "Id")
                         .OnDelete(DeleteBehavior.ClientCascade)
                         .IsRequired();
 
+                    b.Navigation("Address");
+
                     b.Navigation("Createdbyuser");
+                });
+
+            modelBuilder.Entity("GeoFinder.Model.UserToken", b =>
+                {
+                    b.HasOne("GeoFinder.Model.Users", "CreatedByUser")
+                        .WithMany()
+                        .HasForeignKey("CreatedByUserID");
+
+                    b.HasOne("GeoFinder.Model.Users", "ModifyByUser")
+                        .WithMany()
+                        .HasForeignKey("ModifyByUserID");
+
+                    b.HasOne("GeoFinder.Model.TokenType", "TokenType")
+                        .WithMany()
+                        .HasForeignKey("TokenTypeID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("GeoFinder.Model.Users", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("CreatedByUser");
+
+                    b.Navigation("ModifyByUser");
+
+                    b.Navigation("TokenType");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("GeoFinder.Model.Address", b =>
+                {
+                    b.Navigation("Createdbyuser")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("GeoFinder.Model.Users", b =>
                 {
-                    b.Navigation("Address");
-
                     b.Navigation("Modifiedbyuser");
 
                     b.Navigation("Roles")

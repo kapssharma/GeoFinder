@@ -4,44 +4,31 @@ using RestSharp;
 using System.Net.Http.Headers;
 using GeoFinder.Utility.Services.Interface;
 using GeoFinder.Utility.Models.Request;
+using GeoFinder.Utility.Models.Response;
+using GeoFinder.Utility.Enum;
 
 namespace GeoFinder.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+
     public class NominatimController : ControllerBase
     {
+        private readonly ILogger<NominatimController> _logger;
         private IConfiguration configuration;
         private IGeoFinderService _geoFinderService;
-        public NominatimController(IConfiguration _configuration, IGeoFinderService geoFinderService)
+        public NominatimController(ILogger<NominatimController> logger, IConfiguration _configuration, IGeoFinderService geoFinderService)
         {
+            _logger = logger;
             configuration = _configuration;
             _geoFinderService = geoFinderService;
         }
 
         [HttpGet]
         [Route("Search")]
-        public async Task<IActionResult> Search(string? search, string? format)
+        public async Task<IActionResult> Search(string? search, Format format)
         {
-            if (string.IsNullOrEmpty(search))
-                throw new BadParameterException("input parameters are not correct for search");
-
-            if (string.IsNullOrEmpty(format))
-                throw new BadParameterException("input parameters are not correct for formate");
-            var contentResponse = "";
-            string apiEndPoint = this.configuration.GetSection("AppSettings")["NominatimAPIEndPoint"];
-            var SearchUrl = string.Format(apiEndPoint + "search?q={0}&format={1}", search, format);
-            var restClient = new RestClient(SearchUrl);
-            var request = new RestRequest(SearchUrl, Method.Get);
-            var response = await restClient.ExecuteAsync(request);
-            if (response.IsSuccessful)
-            {
-                contentResponse = response.Content;
-            }
-            else
-            {
-                throw new HttpRequestException(response.ErrorMessage);
-            }
+            var contentResponse = await _geoFinderService.Search(search,GeoFinder.Utility.Classes.EnumExtension.GetEnumDescription(format));
             return Ok(contentResponse);
         }
 
@@ -49,22 +36,10 @@ namespace GeoFinder.API.Controllers
         [Route("Status")]
         public async Task<IActionResult> Status()
         {
-            var contentResponse = "";
-            string apiEndPoint = this.configuration.GetSection("AppSettings")["NominatimAPIEndPoint"];
-            var statusUrl = string.Format(apiEndPoint + "status.php?format=json");
-            var restClient = new RestClient(statusUrl);
-            var request = new RestRequest(statusUrl, Method.Get);
-            var response = await restClient.ExecuteAsync(request);
-            if (response.IsSuccessful)
-            {
-                contentResponse = response.Content;
-            }
-            else
-            {
-                throw new HttpRequestException(response.ErrorMessage);
-            }
+            var contentResponse = await _geoFinderService.Status();
             return Ok(contentResponse);
         }
+
 
         [HttpGet]
         [Route("Reverse")]
@@ -136,7 +111,6 @@ namespace GeoFinder.API.Controllers
             }
         }
 
-       
-
     }
+
 }

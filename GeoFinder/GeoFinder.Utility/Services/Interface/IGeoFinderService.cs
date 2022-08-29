@@ -12,5 +12,10 @@ namespace GeoFinder.Utility.Services.Interface
     {
         Task<SignUpResponse> SignUp(SignUpViewModel signUpViewModel);
         Task<List<GetCountries>> getCountries();
+       Task<SearchResponse> Search(string? search, string format);
+        Task<StatusResponse> Status();
+        
+
+
     }
 }

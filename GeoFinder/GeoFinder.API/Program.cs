@@ -5,11 +5,34 @@ using Microsoft.OpenApi.Models;
 using GeoFinder.Utility.Services.Interface;
 using GeoFinder.Utility.Services.Implementation;
 using GeoFinder.Utility.Repository;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
+
+
 ConfigurationManager configuration = builder.Configuration;
 
-// Add services to the container.
+
+
+using var loggerFactory = LoggerFactory.Create(loggingBuilder => loggingBuilder
+  .SetMinimumLevel(LogLevel.Trace)
+    .AddConsole());
+loggerFactory.AddFile("Logs/mylog-{Date}.txt");
+
+
+
+// //For Logger
+//builder.Logging.ClearProviders();
+//builder.Services.AddLogging($@"{Directory.GetCurrentDirectory()}C:\Users\pc\source\repos\Geo-Finder-API\GeoFinder");
+//Host.CreateDefaultBuilder(args);
+//configuration.ConfigureLogging((hostingContext, builder) =>
+// {
+//     builder.Services.AddSingleton(typeof(ILogger<>), typeof(Logger<>));
+// });
+
+
+
+// Add services to the ApplicationDbContext.
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
@@ -46,12 +69,17 @@ builder.Services.AddSwaggerGen(option =>
         }
     });
 });
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    // for enum value as string
+    .AddJsonOptions(options => options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IGeoFinderService, GeoFinderService>();
 builder.Services.AddScoped<IGeoFinderRepository, GeoFinderRepository>();
+builder.Services.AddSingleton(typeof(ILogger<>), typeof(Logger<>));
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

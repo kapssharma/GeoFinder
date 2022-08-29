@@ -50,20 +50,20 @@ namespace GeoFinder.Utility.Repository
                 newUsers.CreatedOn = DateTime.Now;
                 newUsers.IsActive = true;
 
-                _db.Users.Add(newUsers);
+                //_db.Users.Add(newUsers);
 
-                Token newToken = new Token();
-                newToken.UserId = newUsers.Id;
-                newToken.CreatedBy = newUsers.Id;
-                newToken.CreatedOn = DateTime.Now;
-                newToken.IsActive = true;
-                newToken.TokenName = Guid.NewGuid().ToString().Replace("-", "");
+                //Token newToken = new Token();
+                //newToken.UserId = newUsers.Id;
+                //newToken.CreatedBy = newUsers.Id;
+                //newToken.CreatedOn = DateTime.Now;
+                //newToken.IsActive = true;
+                //newToken.TokenName = Guid.NewGuid().ToString().Replace("-", "");
 
-                _db.Tokens.Add(newToken);
-                _db.SaveChanges();
-                signUpResponse.Success = true;
-                signUpResponse.Token = newToken.TokenName;
-                signUpResponse.Message = "SignUp Successfully";
+                //_db.Tokens.Add(newToken);
+                //_db.SaveChanges();
+                //signUpResponse.Success = true;
+                //signUpResponse.Token = newToken.TokenName;
+                //signUpResponse.Message = "SignUp Successfully";
                 return signUpResponse;
             }
             catch (Exception ex)
@@ -73,5 +73,38 @@ namespace GeoFinder.Utility.Repository
                 return signUpResponse;
             }
         }
+
+        public async Task<string> CheckAndReturnSeachResult(string searchText, string format)
+        {
+            var check = _db.Format.Where(x => x.Name == format).FirstOrDefault();
+            return _db.SearchHistory.Where(x => x.SearchName == searchText && x.SearchFormat == _db.Format.Where(x => x.Name == format).FirstOrDefault()) ?.FirstOrDefault()?.SearchResult ?? string.Empty; 
+        }
+
+        public async Task<bool> SaveSearchHistory(string contentResponse, string search, string format)
+        {
+            try
+            {
+
+
+                var result = _db.SearchHistory.Add(new SearchHistory()
+                {
+                    SearchName = search,
+                    SearchByuser = _db.Users.FirstOrDefault(),
+                    SearchResult = contentResponse,
+                    SearchOn = DateTime.Now,
+                    SearchFormat = _db.Format.Where(x => x.Name == format).FirstOrDefault()
+                });
+                _db.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                
+                
+                return false;
+            }
+        }
+
+        
     }
 }

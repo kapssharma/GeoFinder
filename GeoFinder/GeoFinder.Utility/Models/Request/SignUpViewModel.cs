@@ -15,6 +15,7 @@ namespace GeoFinder.Utility.Models.Request
         public string State { get; set; }
         public string City { get; set; }
         public string PIN_Code { get; set; }
+        public string Password { get; set; }
 
     }
 }

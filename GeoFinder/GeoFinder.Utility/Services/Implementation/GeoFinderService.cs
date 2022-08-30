@@ -30,9 +30,14 @@ namespace GeoFinder.Utility.Services.Implementation
             var result = await _geoFinderRepository.GetState(stateID);
             return result;
         }
-        public async Task<SignUpResponse> SignUp(SignUpViewModel signUpViewModel)
+        public async Task<BaseResponse> SignUp(SignUpViewModel signUpViewModel)
         {
             var response = await _geoFinderRepository.SignUp(signUpViewModel);
+            return response;
+        }
+        public async Task<SignInResponse> SignIn(Login login)
+        {
+            var response = await _geoFinderRepository.SignIn(login);
             return response;
         }
     }

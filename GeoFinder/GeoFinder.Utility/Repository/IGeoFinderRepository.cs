@@ -10,8 +10,9 @@ namespace GeoFinder.Utility.Repository
 {
     public interface IGeoFinderRepository
     {
-        Task<SignUpResponse> SignUp(SignUpViewModel signUpViewModel);
+        Task<BaseResponse> SignUp(SignUpViewModel signUpViewModel);
         Task<List<GetCountries>> getCountries();
         Task<List<States>> GetState(string countryID);
+        Task<SignInResponse> SignIn(Login login);
     }
 }

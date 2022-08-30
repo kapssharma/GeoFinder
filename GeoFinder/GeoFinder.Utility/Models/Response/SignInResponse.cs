@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GeoFinder.Utility.Models.Response
 {
-    public class SignUpResponse: BaseResponse
+    public class SignInResponse: BaseResponse
     {
         public string Token { get; set; }
 

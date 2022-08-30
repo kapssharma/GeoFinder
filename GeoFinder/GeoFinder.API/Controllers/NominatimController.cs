@@ -135,5 +135,20 @@ namespace GeoFinder.API.Controllers
                 return NotFound(response);
             }
         }
+
+        [HttpPost]
+        [Route("SignIn")]
+        public async Task<IActionResult> SignIn(Login SignInModel)
+        {
+            var response = await _geoFinderService.SignIn(SignInModel);
+            if (response.Success)
+            {
+                return Ok(response);
+            }
+            else
+            {
+                return NotFound(response);
+            }
+        }
     }
 }

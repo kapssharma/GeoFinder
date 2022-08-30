@@ -9,15 +9,33 @@ using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Host.ConfigureLogging(logging =>
+{
+    logging.ClearProviders();
+    logging.AddConsole();
+    logging.AddFile($@"{Directory.GetCurrentDirectory()}/Logs/log.txt");
+});
 
-ConfigurationManager configuration = builder.Configuration;
+//builder.Host.ConfigureLogging(logging =>
+//{
+//    logging.ClearProviders();
+//    logging.AddConsole();
+//    logging.AddFile($@"{Directory.GetCurrentDirectory()}/Logs/log.txt");
+
+//});
+
+
+//var builder = WebApplication.CreateBuilder(args);
+
+
+//ConfigurationManager configuration = builder.Configuration;
 
 
 
-using var loggerFactory = LoggerFactory.Create(loggingBuilder => loggingBuilder
-  .SetMinimumLevel(LogLevel.Trace)
-    .AddConsole());
-loggerFactory.AddFile("Logs/mylog-{Date}.txt");
+//using var loggerFactory = LoggerFactory.Create(loggingBuilder => loggingBuilder
+//  .SetMinimumLevel(LogLevel.Trace)
+//    .AddConsole());
+//loggerFactory.AddFile("Logs/mylog-{Date}.txt");
 
 
 
@@ -78,7 +96,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IGeoFinderService, GeoFinderService>();
 builder.Services.AddScoped<IGeoFinderRepository, GeoFinderRepository>();
-builder.Services.AddSingleton(typeof(ILogger<>), typeof(Logger<>));
+//builder.Services.AddSingleton(typeof(ILogger<>), typeof(Logger<>));
 
 var app = builder.Build();
 

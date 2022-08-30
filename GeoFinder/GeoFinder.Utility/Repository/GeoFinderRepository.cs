@@ -3,6 +3,9 @@ using GeoFinder.Model;
 using GeoFinder.Utility.Models.Request;
 using GeoFinder.Utility.Models.Response;
 using GeoFinder.Utility.Services.Interface;
+
+using Microsoft.Extensions.Logging;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,9 +17,11 @@ namespace GeoFinder.Utility.Repository
     public class GeoFinderRepository : IGeoFinderRepository
     {
         private readonly ApplicationDbContext _db;
+        private readonly ILogger<GeoFinderRepository> _logger;
 
-        public GeoFinderRepository(ApplicationDbContext db)
+        public GeoFinderRepository(ILogger<GeoFinderRepository> logger, ApplicationDbContext db)
         {
+            _logger = logger;
             _db = db;
         }
 
@@ -34,6 +39,8 @@ namespace GeoFinder.Utility.Repository
             }
             catch (Exception ex)
             {
+                 _logger.LogError($"Error While Getting Countries Names  : { ex.Message}",
+                         DateTime.UtcNow.ToLongTimeString());
                 return countries;
             }
         }
@@ -46,30 +53,16 @@ namespace GeoFinder.Utility.Repository
                 Users newUsers = new Users();
                 newUsers.Name = signUpViewModel.Name;
                 newUsers.EmailAddress = signUpViewModel.Email;
-                //newUsers.Password = signUpViewModel.Password;
                 newUsers.CreatedOn = DateTime.Now;
                 newUsers.IsActive = true;
-
-                //_db.Users.Add(newUsers);
-
-                //Token newToken = new Token();
-                //newToken.UserId = newUsers.Id;
-                //newToken.CreatedBy = newUsers.Id;
-                //newToken.CreatedOn = DateTime.Now;
-                //newToken.IsActive = true;
-                //newToken.TokenName = Guid.NewGuid().ToString().Replace("-", "");
-
-                //_db.Tokens.Add(newToken);
-                //_db.SaveChanges();
-                //signUpResponse.Success = true;
-                //signUpResponse.Token = newToken.TokenName;
-                //signUpResponse.Message = "SignUp Successfully";
                 return signUpResponse;
             }
             catch (Exception ex)
             {
                 signUpResponse.Success = false;
                 signUpResponse.Message = ex.Message;
+                _logger.LogError($"Error while Saving Data : { ex.Message}",
+                        DateTime.UtcNow.ToLongTimeString());
                 return signUpResponse;
             }
         }
@@ -84,8 +77,6 @@ namespace GeoFinder.Utility.Repository
         {
             try
             {
-
-
                 var result = _db.SearchHistory.Add(new SearchHistory()
                 {
                     SearchName = search,
@@ -99,8 +90,8 @@ namespace GeoFinder.Utility.Repository
             }
             catch (Exception ex)
             {
-                
-                
+                _logger.LogError($"Error in Search() : {ex.Message}",
+                         DateTime.UtcNow.ToLongTimeString());
                 return false;
             }
         }

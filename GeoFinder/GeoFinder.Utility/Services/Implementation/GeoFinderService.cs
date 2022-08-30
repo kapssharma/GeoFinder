@@ -28,7 +28,7 @@ namespace GeoFinder.Utility.Services.Implementation
             _logger = logger;
             configuration = _configuration;
             _geoFinderRepository = geoFinderRepository;
-            _logger.LogInformation("test");
+
         }
         /// <summary>
         /// Get all Countries
@@ -54,13 +54,12 @@ namespace GeoFinder.Utility.Services.Implementation
                 {
                     searchResponse.Success = false;
                     searchResponse.Message = "Please Enter Search Data and Format";
-                    _logger.LogInformation("Please Enter Data");
                     return searchResponse;
                 }
 
                 var contentResponse = string.Empty;
                 var searchResult = await _geoFinderRepository.CheckAndReturnSeachResult(search, format);
-              
+
                 if (!string.IsNullOrEmpty(searchResult))
                 {
                     contentResponse = searchResult;
@@ -78,6 +77,8 @@ namespace GeoFinder.Utility.Services.Implementation
                     }
                     else
                     {
+                        _logger.LogError($"Error Recieveing Response from API : {response.ErrorMessage}",
+                         DateTime.UtcNow.ToLongTimeString());
                         searchResponse.Success = false;
                         searchResponse.Message = response.ErrorMessage;
                         return searchResponse;
@@ -98,7 +99,7 @@ namespace GeoFinder.Utility.Services.Implementation
                     searchResponse.Success = true;
                     searchResponse.Message = "Searched Successfully";
                     searchResponse.XMLSearchResponse = xmlSearchResponse;
-                    _logger.LogInformation("Searched Successfully");
+
                     //Method for Save Response
                     if (string.IsNullOrEmpty(searchResult))
                         await _geoFinderRepository.SaveSearchHistory(contentResponse, search, format);
@@ -112,10 +113,8 @@ namespace GeoFinder.Utility.Services.Implementation
                     searchResponse.Success = true;
                     searchResponse.Message = "Searched Successfully";
                     searchResponse.JsonSearchResponse = jsonSearchResponse;
-                    _logger.LogInformation("Searched Successfully");
-                    //Method for save Response
                     if (string.IsNullOrEmpty(searchResult))
-                        await _geoFinderRepository.SaveSearchHistory(contentResponse, search,format);
+                        await _geoFinderRepository.SaveSearchHistory(contentResponse, search, format);
                     return searchResponse;
                 }
                 return searchResponse;
@@ -124,7 +123,8 @@ namespace GeoFinder.Utility.Services.Implementation
             {
                 searchResponse.Success = false;
                 searchResponse.Message = ex.Message;
-                _logger.LogInformation(ex.Message);
+                _logger.LogError($"Error in Searching:{search} Error : {ex.Message}",
+                         DateTime.UtcNow.ToLongTimeString());
                 return searchResponse;
             }
         }
@@ -152,15 +152,15 @@ namespace GeoFinder.Utility.Services.Implementation
                 statusResponseData = JsonConvert.DeserializeObject<StatusResponseData>(contentResponse);
                 statusResponse.ResponseData = statusResponseData;
                 statusResponse.Success = true;
-                statusResponse.Message = "Success";
-                _logger.LogInformation("About page visited at {DT}",
-                 DateTime.UtcNow.ToLongTimeString());
+                statusResponse.Message = "Status";
                 return statusResponse;
             }
             catch (Exception ex)
             {
                 statusResponse.Success = false;
                 statusResponse.Message = "failed";
+                _logger.LogError($"Error in getting Status: {ex.Message}",
+                         DateTime.UtcNow.ToLongTimeString());
                 return statusResponse;
             }
         }
@@ -171,8 +171,25 @@ namespace GeoFinder.Utility.Services.Implementation
             return response;
         }
 
-        
+        public async Task<string> LookUp(string? osm_id)
+        {
+            var contentResponse = "";
+            string apiEndPoint = this.configuration.GetSection("AppSettings")["GetNominatimBaseURL"];
+            string lookupURL = string.Format(apiEndPoint + "lookup?osm_ids={0}", osm_id);
+            var restClient = new RestClient(lookupURL);
+            var request = new RestRequest(lookupURL, Method.Get);
+            var response = await restClient.ExecuteAsync(request);
 
+            if (response.IsSuccessful)
+            {
+                contentResponse = response.Content;
+            }
+            else
+            {
+                throw new HttpRequestException(response.ErrorMessage);
 
+            }
+            return contentResponse;
+        }
     }
 }

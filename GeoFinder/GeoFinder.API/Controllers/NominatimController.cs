@@ -28,8 +28,18 @@ namespace GeoFinder.API.Controllers
         [Route("Search")]
         public async Task<IActionResult> Search(string? search, Format format)
         {
-            var contentResponse = await _geoFinderService.Search(search,GeoFinder.Utility.Classes.EnumExtension.GetEnumDescription(format));
-            return Ok(contentResponse);
+            try
+            {
+                var contentResponse = await _geoFinderService.Search(search, GeoFinder.Utility.Classes.EnumExtension.GetEnumDescription(format));
+
+                return Ok(contentResponse);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error in Search() : {ex.Message}",
+                         DateTime.UtcNow.ToLongTimeString());
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpGet]
@@ -77,22 +87,7 @@ namespace GeoFinder.API.Controllers
         {
             if (string.IsNullOrEmpty(osm_id))
                 throw new BadParameterException("input parameters are not correct for osm_id");
-
-            var contentResponse = "";
-            string apiEndPoint = this.configuration.GetSection("AppSettings")["GetNominatimBaseURL"];
-            string lookupURL = string.Format(apiEndPoint + "lookup?osm_ids={0}", osm_id);
-            var restClient = new RestClient(lookupURL);
-            var request = new RestRequest(lookupURL, Method.Get);
-            var response = await restClient.ExecuteAsync(request);
-
-            if (response.IsSuccessful)
-            {
-                contentResponse = response.Content;
-            }
-            else
-            {
-                throw new HttpRequestException(response.ErrorMessage);
-            }
+            var contentResponse = await _geoFinderService.LookUp(osm_id);
             return Ok(contentResponse);
         }
 

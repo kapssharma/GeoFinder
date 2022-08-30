@@ -14,6 +14,8 @@ namespace GeoFinder.Utility.Services.Interface
         Task<List<GetCountries>> getCountries();
        Task<SearchResponse> Search(string? search, string format);
         Task<StatusResponse> Status();
+        Task<string> LookUp(string? osm_id);
+      
         
 
 

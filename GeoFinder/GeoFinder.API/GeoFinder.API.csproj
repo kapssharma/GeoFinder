@@ -24,4 +24,8 @@
     <ProjectReference Include="..\GeoFinder.Utility\GeoFinder.Utility.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Logs\" />
+  </ItemGroup>
+
 </Project>

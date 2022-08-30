@@ -7,7 +7,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="RestSharp" Version="108.0.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GeoFinder.Database\GeoFinder.Database.sqlproj" />
+    <ProjectReference Include="..\GeoFinder.Data\GeoFinder.Data.csproj" />
+    <ProjectReference Include="..\GeoFinder.Model\GeoFinder.Model.csproj" />
+    <ProjectReference Include="..\GeoFinder.Utility\GeoFinder.Utility.csproj" />
   </ItemGroup>
 
 </Project>

@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GeoFinder.Data
+namespace GeoFinder.Utility.Models.Response
 {
-    internal class Class2
+    public class SignInResponse: BaseResponse
     {
+        public string Token { get; set; }
+
     }
 }

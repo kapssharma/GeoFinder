@@ -8,20 +8,11 @@ using System.Threading.Tasks;
 
 namespace GeoFinder.Model
 {
-    public class State
+    public class TokenType
     {
         [Key]
-        public int Id { get; set; }
-
-        [Required]
-        public String Name { get; set; }
-
-        public  Guid CountryId { get; set; }
-
-        [ForeignKey("CountryId")]
-        public  Country Country { get; set; }
-
+        public Guid TokenTypeID { get; set; }
+        public string Token_Description { get; set; }
         public bool IsActive { get; set; }
-
     }
 }

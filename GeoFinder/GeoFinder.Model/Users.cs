@@ -20,35 +20,37 @@ namespace GeoFinder.Model
         [Display(Name = "Email")]
         public string EmailAddress { get; set; }
 
-        [Required(ErrorMessage = "Please enter your Password")]
-        public string Password { get; set; }
+        
+        public string? Password { get; set; }
+
+        
+        [ForeignKey("RoleId")]
+        public Guid? RoleId { get; set; }
 
         [Required(ErrorMessage = "Please select your Role")]
         [Display(Name = "Role")]
-        public Guid RoleId { get; set; }
-
-        [ForeignKey("Id")]
         public virtual Roles Roles { get; set; }
 
-        public Guid CreatedBy { get; set; }
+        public Guid? CreatedBy { get; set; }
         [ForeignKey("Id")]
-        public Users Createdbyuser { get; set; }
+        public Users? Createdbyuser { get; set; }
 
         public DateTime CreatedOn { get; set; }
+        [ForeignKey("ModifiedById")]
+        public Guid? ModifiedBy { get; set; }
+        
+        public Users? Modifiedbyuser { get; set; }
 
-        public Guid ModifiedBy { get; set; }
-        [ForeignKey("Id")]
-        public Users Modifiedbyuser { get; set; }
-
-        public DateTime ModifiedOn { get; set; }
+        public DateTime? ModifiedOn { get; set; }
+        [ForeignKey("AddressId")]
+        public Guid? AddressId { get; set; }
 
         [Display(Name = "Address")]
-        public Guid AddressId { get; set; }
-
-        [ForeignKey("Id")]
-        public virtual Address Address { get; set;}
+        public virtual Address? Address { get; set;}
 
         public bool IsActive { get; set; }
+
+        public bool IsVerified { get; set; }
 
 
     }

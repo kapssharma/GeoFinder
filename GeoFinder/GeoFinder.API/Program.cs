@@ -96,6 +96,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IGeoFinderService, GeoFinderService>();
 builder.Services.AddScoped<IGeoFinderRepository, GeoFinderRepository>();
+builder.Services.AddScoped<IEmailService, EmailService>();
 //builder.Services.AddSingleton(typeof(ILogger<>), typeof(Logger<>));
 
 var app = builder.Build();

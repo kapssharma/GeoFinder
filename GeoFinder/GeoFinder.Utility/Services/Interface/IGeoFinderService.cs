@@ -10,13 +10,13 @@ namespace GeoFinder.Utility.Services.Interface
 {
     public interface IGeoFinderService
     {
-        Task<SignUpResponse> SignUp(SignUpViewModel signUpViewModel);
-        Task<List<GetCountries>> getCountries();
-       Task<SearchResponse> Search(string? search, string format);
+        Task<BaseResponse> SignUp(SignUpViewModel signUpViewModel);
+        Task<List<GetCountries>> GetCountries();
+        Task<List<States>> GetState(string countryID);
+        Task<SignInResponse> SignIn(Login login);
+        Task<SearchResponse> Search(string? Search, string? Format);
         Task<StatusResponse> Status();
-        Task<string> LookUp(string? osm_id);
-      
-        
+        Task<string> LookUp(string osm_id);
 
 
     }

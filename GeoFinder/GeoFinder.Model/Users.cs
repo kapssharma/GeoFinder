@@ -50,6 +50,8 @@ namespace GeoFinder.Model
 
         public bool IsActive { get; set; }
 
+        public bool IsVerified { get; set; }
+
 
     }
 }

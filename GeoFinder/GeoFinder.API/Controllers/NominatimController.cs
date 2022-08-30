@@ -91,21 +91,6 @@ namespace GeoFinder.API.Controllers
             return Ok(contentResponse);
         }
 
-        [HttpPost]
-        [Route("SignUp")]
-        public async Task<IActionResult> SignUp(SignUpViewModel signUpViewModel)
-        {
-            var response = await _geoFinderService.SignUp(signUpViewModel);
-            if (response.Success)
-            {
-                return Ok(response);
-            }
-            else
-            {
-                return NotFound(response);
-            }
-        }
-
     }
 
 }

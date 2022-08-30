@@ -34,10 +34,25 @@ namespace GeoFinder.Utility.Services.Implementation
         /// Get all Countries
         /// </summary>
         /// <returns></returns>
-        public async Task<List<GetCountries>> getCountries()
+        public async Task<List<GetCountries>> GetCountries()
         {
             var result = await _geoFinderRepository.getCountries();
             return result;
+        }
+        public async Task<List<States>> GetState(string stateID)
+        {
+            var result = await _geoFinderRepository.GetState(stateID);
+            return result;
+        }
+        public async Task<BaseResponse> SignUp(SignUpViewModel signUpViewModel)
+        {
+            var response = await _geoFinderRepository.SignUp(signUpViewModel);
+            return response;
+        }
+        public async Task<SignInResponse> SignIn(Login login)
+        {
+            var response = await _geoFinderRepository.SignIn(login);
+            return response;
         }
         /// <summary>
         /// Get Searched response  on the basis of Format
@@ -165,11 +180,6 @@ namespace GeoFinder.Utility.Services.Implementation
             }
         }
 
-        public async Task<SignUpResponse> SignUp(SignUpViewModel signUpViewModel)
-        {
-            var response = await _geoFinderRepository.SignUp(signUpViewModel);
-            return response;
-        }
 
         public async Task<string> LookUp(string? osm_id)
         {

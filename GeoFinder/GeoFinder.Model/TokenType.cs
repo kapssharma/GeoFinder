@@ -13,14 +13,6 @@ namespace GeoFinder.Model
         [Key]
         public Guid TokenTypeID { get; set; }
         public string Token_Description { get; set; }
-        public Guid CreatedBy { get; set; }
-        [ForeignKey("CreatedBy")]
-        public Users? CreatedByUser { get; set; }
-        public DateTime CreatedOn { get; set; }
-        public Guid? ModifiedBy { get; set; }
-        [ForeignKey("ModifiedBy")]
-        public Users? ModifiedByuser { get; set; }
-        public DateTime? ModifiedOn { get; set; }
         public bool IsActive { get; set; }
     }
 }

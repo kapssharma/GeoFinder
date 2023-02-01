@@ -100,7 +100,7 @@ namespace GeoFinder.API.Controllers
                 throw new BadParameterException("input parameters are not correct for osm_id");
 
             var contentResponse = "";
-            string apiEndPoint = this.configuration.GetSection("AppSettings")["GetNominatimBaseURL"];
+            string apiEndPoint = this.configuration.GetSection("AppSettings")["NominatimAPIEndPoint"];
             string lookupURL = string.Format(apiEndPoint + "lookup?osm_ids={0}", osm_id);
             var restClient = new RestClient(lookupURL);
             var request = new RestRequest(lookupURL, Method.Get);
@@ -116,6 +116,44 @@ namespace GeoFinder.API.Controllers
             }
             return Ok(contentResponse);
         }
-        
-      }
+        [HttpGet]
+        [Route("Details")]
+        public async Task<IActionResult> Deatails(string? osm_id, bool isThisPlaceID)
+        {
+
+            if (string.IsNullOrEmpty(osm_id))
+                throw new BadParameterException("input parameters are not correct for osm_id");
+
+            var contentResponse = "";
+            string lookupURL = string.Empty;
+            string osm_type = string.Empty;
+            string osmid = string.Empty;
+            string apiEndPoint = this.configuration.GetSection("AppSettings")["NominatimAPIEndPoint"];
+            if (isThisPlaceID)
+            {
+                lookupURL = string.Format(apiEndPoint + "details?place_id={0}&format=json", osm_id);
+            }
+            else
+            {
+                osm_type = osm_id.Substring(0, 1);
+                osmid = osm_id.Remove(0, 1);
+                lookupURL = string.Format(apiEndPoint + "details.php?osmtype={0}&osmid={1}&format=json", osm_type, osmid);
+            }
+
+            var restClient = new RestClient(lookupURL);
+            var request = new RestRequest(lookupURL, Method.Get);
+            var response = await restClient.ExecuteAsync(request);
+
+            if (response.IsSuccessful)
+            {
+                contentResponse = response.Content;
+            }
+            else
+            {
+                throw new HttpRequestException(response.ErrorMessage);
+            }
+            return Ok(contentResponse);
+        }
+
+    }
 }

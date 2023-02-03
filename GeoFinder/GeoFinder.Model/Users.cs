@@ -16,7 +16,7 @@ namespace GeoFinder.Model
         [Required(ErrorMessage = "Please enter your UserName")]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "Please enter your EmailAdress")]
+        [Required(ErrorMessage = "Please enter your EmailAdress")] 
         [Display(Name = "Email")]
         public string EmailAddress { get; set; }
 

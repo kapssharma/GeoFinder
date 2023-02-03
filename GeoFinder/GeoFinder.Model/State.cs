@@ -14,7 +14,7 @@ namespace GeoFinder.Model
         public int Id { get; set; }
 
         [Required]
-        public String Name { get; set; }
+        public String Name { get; set; } 
 
         public  Guid CountryId { get; set; }
 

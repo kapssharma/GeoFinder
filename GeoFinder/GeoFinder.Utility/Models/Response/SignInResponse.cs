@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GeoFinder.Model
+namespace GeoFinder.Utility.Models.Response
 {
-    public class SignIn 
+    public class SignInResponse: BaseResponse
     {
-        public string EmailAddress { get; set; }
+        public string Token { get; set; }
+
     }
 }
+ 

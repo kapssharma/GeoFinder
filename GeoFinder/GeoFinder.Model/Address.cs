@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace GeoFinder.Model
 {
     public class Address
-    {
+    { 
         [Key]
         public  Guid Id { get; set; }
 

@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace GeoFinder.Model
-{
+{ 
     public class Roles
     {
         [Key]

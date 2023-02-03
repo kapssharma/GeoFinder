@@ -18,18 +18,15 @@ namespace GeoFinder.Model
 
         public  Guid CountryId { get; set; }
 
-        [ForeignKey("Id")]
-        public  Country Country { get; set; }
+        public virtual Guid Country { get; set; }
 
         public Guid CreatedBy { get; set; }
-        [ForeignKey("Id")]
-        public Users Createdbyuser { get; set; }
+        public virtual Guid Createdbyuser { get; set; }
 
         public DateTime CreatedOn { get; set; }
 
         public Guid ModifiedBy { get; set; }
-        [ForeignKey("Id")]
-        public Users Modifiedbyuser { get; set; }
+        public virtual Guid Modifiedbyuser { get; set; }
 
         public DateTime ModifiedOn { get; set; }
 

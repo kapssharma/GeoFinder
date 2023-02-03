@@ -1,3 +1,7 @@
+using GeoFinder.Utility1.Repository;
+using GeoFinder.Utility1.Services.Implementation;
+using GeoFinder.Utility1.Services.Interface;
+
 var builder = WebApplication.CreateBuilder(args);
 ConfigurationManager configuration = builder.Configuration; 
 

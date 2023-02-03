@@ -12,7 +12,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\GeoFinder.Database\GeoFinder.Database.sqlproj" />
+    <ProjectReference Include="..\GeoFinder.Data\GeoFinder.Data.csproj" />
     <ProjectReference Include="..\GeoFinder.Model\GeoFinder.Model.csproj" />
+    <ProjectReference Include="..\GeoFinder.Utility1\GeoFinder.Utility1.csproj" />
   </ItemGroup>
 
 </Project>

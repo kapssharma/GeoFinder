@@ -16,10 +16,27 @@
       "Microsoft.OpenApi/1.2.3": {
         "type": "package",
         "compile": {
-          "lib/netstandard2.0/Microsoft.OpenApi.dll": {}
+          "lib/netstandard2.0/Microsoft.OpenApi.dll": {
+            "related": ".pdb;.xml"
+          }
         },
         "runtime": {
-          "lib/netstandard2.0/Microsoft.OpenApi.dll": {}
+          "lib/netstandard2.0/Microsoft.OpenApi.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
+      "RestSharp/108.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/RestSharp.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/RestSharp.dll": {
+            "related": ".xml"
+          }
         }
       },
       "Swashbuckle.AspNetCore/6.2.3": {
@@ -40,10 +57,14 @@
           "Microsoft.OpenApi": "1.2.3"
         },
         "compile": {
-          "lib/net6.0/Swashbuckle.AspNetCore.Swagger.dll": {}
+          "lib/net6.0/Swashbuckle.AspNetCore.Swagger.dll": {
+            "related": ".pdb;.xml"
+          }
         },
         "runtime": {
-          "lib/net6.0/Swashbuckle.AspNetCore.Swagger.dll": {}
+          "lib/net6.0/Swashbuckle.AspNetCore.Swagger.dll": {
+            "related": ".pdb;.xml"
+          }
         },
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
@@ -55,23 +76,41 @@
           "Swashbuckle.AspNetCore.Swagger": "6.2.3"
         },
         "compile": {
-          "lib/net6.0/Swashbuckle.AspNetCore.SwaggerGen.dll": {}
+          "lib/net6.0/Swashbuckle.AspNetCore.SwaggerGen.dll": {
+            "related": ".pdb;.xml"
+          }
         },
         "runtime": {
-          "lib/net6.0/Swashbuckle.AspNetCore.SwaggerGen.dll": {}
+          "lib/net6.0/Swashbuckle.AspNetCore.SwaggerGen.dll": {
+            "related": ".pdb;.xml"
+          }
         }
       },
       "Swashbuckle.AspNetCore.SwaggerUI/6.2.3": {
         "type": "package",
         "compile": {
-          "lib/net6.0/Swashbuckle.AspNetCore.SwaggerUI.dll": {}
+          "lib/net6.0/Swashbuckle.AspNetCore.SwaggerUI.dll": {
+            "related": ".pdb;.xml"
+          }
         },
         "runtime": {
-          "lib/net6.0/Swashbuckle.AspNetCore.SwaggerUI.dll": {}
+          "lib/net6.0/Swashbuckle.AspNetCore.SwaggerUI.dll": {
+            "related": ".pdb;.xml"
+          }
         },
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "GeoFinder.Model/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/GeoFinder.Model.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GeoFinder.Model.dll": {}
+        }
       }
     }
   },
@@ -118,6 +157,24 @@
         "lib/netstandard2.0/Microsoft.OpenApi.xml",
         "microsoft.openapi.1.2.3.nupkg.sha512",
         "microsoft.openapi.nuspec"
+      ]
+    },
+    "RestSharp/108.0.3": {
+      "sha512": "phq1AkVhqVXHZxvWDV4fJEJKCR5OHNFUGx2Ix8o5EFShS6654oZhth4X2RWvaU/W7UexIswW0T+lTirxfLU2Ow==",
+      "type": "package",
+      "path": "restsharp/108.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net5.0/RestSharp.dll",
+        "lib/net5.0/RestSharp.xml",
+        "lib/net6.0/RestSharp.dll",
+        "lib/net6.0/RestSharp.xml",
+        "lib/netstandard2.0/RestSharp.dll",
+        "lib/netstandard2.0/RestSharp.xml",
+        "restsharp.108.0.3.nupkg.sha512",
+        "restsharp.nuspec",
+        "restsharp.png"
       ]
     },
     "Swashbuckle.AspNetCore/6.2.3": {
@@ -200,32 +257,34 @@
         "swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512",
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
+    },
+    "GeoFinder.Model/1.0.0": {
+      "type": "project",
+      "path": "../GeoFinder.Model/GeoFinder.Model.csproj",
+      "msbuildProject": "../GeoFinder.Model/GeoFinder.Model.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "GeoFinder.Model >= 1.0.0",
+      "RestSharp >= 108.0.3",
       "Swashbuckle.AspNetCore >= 6.2.3"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\kapil\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\pc\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\project\\GeoFinder\\GeoFinder\\GeoFinder.API\\GeoFinder.API.csproj",
+      "projectUniqueName": "C:\\Users\\pc\\Documents\\GitHub\\GeoFinder\\GeoFinder\\GeoFinder.API\\GeoFinder.API.csproj",
       "projectName": "GeoFinder.API",
-      "projectPath": "D:\\project\\GeoFinder\\GeoFinder\\GeoFinder.API\\GeoFinder.API.csproj",
-      "packagesPath": "C:\\Users\\kapil\\.nuget\\packages\\",
-      "outputPath": "D:\\project\\GeoFinder\\GeoFinder\\GeoFinder.API\\obj\\",
+      "projectPath": "C:\\Users\\pc\\Documents\\GitHub\\GeoFinder\\GeoFinder\\GeoFinder.API\\GeoFinder.API.csproj",
+      "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\pc\\Documents\\GitHub\\GeoFinder\\GeoFinder\\GeoFinder.API\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\kapil\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -234,13 +293,20 @@
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {},
-        "https://nuget.telerik.com/nuget": {},
-        "https://pkgs.dev.azure.com/Rodex/_packaging/Rodex/nuget/v3/index.json": {}
+        "https://pkgs.dev.azure.com/fleetautofinance/9d35e68e-cbdc-4b67-b4f3-1a5654600ec8/_packaging/Test/nuget/v3/index.json": {},
+        "https://pkgs.dev.azure.com/fleetautofinance/PortalProd/_packaging/Phoenix.Shared/nuget/v3/index.json": {},
+        "https://pkgs.dev.azure.com/fleetautofinance/_packaging/Phoenix.Common.Library/nuget/v3/index.json": {},
+        "https://pkgs.dev.azure.com/tf-cloudfabric/_packaging/CloudFabric/nuget/v3/index.json": {},
+        "https://www.myget.org/F/applicationinsights-sdk-labs/api/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\pc\\Documents\\GitHub\\GeoFinder\\GeoFinder\\GeoFinder.Model\\GeoFinder.Model.csproj": {
+              "projectPath": "C:\\Users\\pc\\Documents\\GitHub\\GeoFinder\\GeoFinder\\GeoFinder.Model\\GeoFinder.Model.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -253,6 +319,10 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "RestSharp": {
+            "target": "Package",
+            "version": "[108.0.3, )"
+          },
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[6.2.3, )"
@@ -264,7 +334,8 @@
           "net47",
           "net471",
           "net472",
-          "net48"
+          "net48",
+          "net481"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -276,7 +347,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

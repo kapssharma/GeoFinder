@@ -1,11 +1,3 @@
-using GeoFinder.Data;
-using Microsoft.EntityFrameworkCore;
-using System.Text;
-using Microsoft.OpenApi.Models;
-using GeoFinder.Utility.Services.Interface;
-using GeoFinder.Utility.Services.Implementation;
-using GeoFinder.Utility.Repository;
-
 var builder = WebApplication.CreateBuilder(args);
 ConfigurationManager configuration = builder.Configuration; 
 

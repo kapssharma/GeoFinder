@@ -16,19 +16,9 @@ namespace GeoFinder.Model
         [Required]
         public String Name { get; set; } 
 
-        public  Guid CountryId { get; set; }
+        public  int CountryId { get; set; }
 
-        public virtual Guid Country { get; set; }
-
-        public Guid CreatedBy { get; set; }
-        public virtual Guid Createdbyuser { get; set; }
-
-        public DateTime CreatedOn { get; set; }
-
-        public Guid ModifiedBy { get; set; }
-        public virtual Guid Modifiedbyuser { get; set; }
-
-        public DateTime ModifiedOn { get; set; }
+        public virtual Country Country { get; set; }
 
         public bool IsActive { get; set; }
 

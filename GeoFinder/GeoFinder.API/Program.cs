@@ -1,9 +1,10 @@
 using GeoFinder.Data;
 using Microsoft.OpenApi.Models;
-using GeoFinder.Utility1.Services.Interface;
-using GeoFinder.Utility1.Services.Implementation;
-using GeoFinder.Utility1.Repository;
+using GeoFinder.Utility.Services.Interface;
+using GeoFinder.Utility.Services.Implementation;
 using Microsoft.EntityFrameworkCore;
+using GeoFinder.Utility.Repository.Implementation;
+using GeoFinder.Utility.Repository.Interface;
 
 var builder = WebApplication.CreateBuilder(args);
 ConfigurationManager configuration = builder.Configuration;
@@ -52,6 +53,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IGeoFinderService, GeoFinderService>();
 builder.Services.AddScoped<IGeoFinderRepository, GeoFinderRepository>();
 builder.Services.AddScoped<IEmailService, EmailService>();
+builder.Services.AddScoped<ILogService, LogService>();
+builder.Services.AddScoped<ILogRepository, LogRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

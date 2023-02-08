@@ -1,4 +1,4 @@
-﻿namespace GeoFinder.Utility1.Models.Request
+﻿namespace GeoFinder.Utility.Models.Request
 {
     public class GetCountries
     {

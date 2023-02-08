@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GeoFinder.Utility1.Services.Interface
+namespace GeoFinder.Utility.Services.Interface
 {
     public interface IEmailService
     {

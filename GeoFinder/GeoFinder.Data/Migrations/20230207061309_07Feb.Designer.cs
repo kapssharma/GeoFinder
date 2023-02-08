@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GeoFinder.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230203122049_InitialCommit")]
-    partial class InitialCommit
+    [Migration("20230207061309_07Feb")]
+    partial class _07Feb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -145,6 +145,53 @@ namespace GeoFinder.Data.Migrations
                     b.ToTable("Roles");
                 });
 
+            modelBuilder.Entity("GeoFinder.Model.SearchLog", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("BrowserType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("EndPoint")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Format")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("IPAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double?>("Latitude")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Longitude")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Request")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Response")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Search")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("User_ID")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SearchLog");
+                });
+
             modelBuilder.Entity("GeoFinder.Model.State", b =>
                 {
                     b.Property<int>("Id")
@@ -152,9 +199,6 @@ namespace GeoFinder.Data.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<Guid>("Country")
-                        .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("CountryId")
                         .HasColumnType("uniqueidentifier");
@@ -185,6 +229,8 @@ namespace GeoFinder.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CountryId");
 
                     b.ToTable("States");
                 });
@@ -303,6 +349,17 @@ namespace GeoFinder.Data.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("UserTokens");
+                });
+
+            modelBuilder.Entity("GeoFinder.Model.State", b =>
+                {
+                    b.HasOne("GeoFinder.Model.Country", "Country")
+                        .WithMany()
+                        .HasForeignKey("CountryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Country");
                 });
 
             modelBuilder.Entity("GeoFinder.Model.Users", b =>

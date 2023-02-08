@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GeoFinder.Utility1.Models.Request
+namespace GeoFinder.Utility.Models.Request
 {
     public class SignUpViewModel
     {

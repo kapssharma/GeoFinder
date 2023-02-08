@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GeoFinder.Utility1.Models.Response
+namespace GeoFinder.Utility.Models.Response
 {
     public class SignInResponse: BaseResponse
     {

@@ -1,4 +1,4 @@
-﻿namespace GeoFinder.Utility1
+﻿namespace GeoFinder.Utility
 {
     public class Class1
     {

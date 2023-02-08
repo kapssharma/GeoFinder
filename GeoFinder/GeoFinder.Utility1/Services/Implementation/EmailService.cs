@@ -1,4 +1,4 @@
-﻿using GeoFinder.Utility1.Services.Interface;
+﻿using GeoFinder.Utility.Services.Interface;
 
 using Microsoft.Extensions.Configuration;
 
@@ -10,7 +10,7 @@ using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GeoFinder.Utility1.Services.Implementation
+namespace GeoFinder.Utility.Services.Implementation
 {
     public class EmailService : IEmailService
     {

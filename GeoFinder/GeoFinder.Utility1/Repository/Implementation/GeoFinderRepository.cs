@@ -12,15 +12,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Sockets;
 using Microsoft.Extensions.Configuration;
+using GeoFinder.Utility.Repository.Interface;
 
-namespace GeoFinder.Utility.Repository
+namespace GeoFinder.Utility.Repository.Implementation
 {
     public class GeoFinderRepository : IGeoFinderRepository
     {
         private readonly ApplicationDbContext _db;
         private IConfiguration _configuration;
         private IEmailService _emailService;
-        public GeoFinderRepository(ApplicationDbContext db, IConfiguration configuration, IEmailService emailService) 
+        public GeoFinderRepository(ApplicationDbContext db, IConfiguration configuration, IEmailService emailService)
         {
             _db = db;
             _configuration = configuration;
@@ -52,7 +53,7 @@ namespace GeoFinder.Utility.Repository
             {
                 getStates = _db.States.Where(x => x.CountryId.ToString() == countryID & x.IsActive == true).Select(x => new States()
                 {
-                    StateId = (x.Id).ToString(),
+                    StateId = x.Id.ToString(),
                     Name = x.Name
                 }).ToList();
                 return getStates;
@@ -71,29 +72,29 @@ namespace GeoFinder.Utility.Repository
                 Users newUsers = new Users();
                 newUsers.Name = signUpViewModel.Name;
                 newUsers.EmailAddress = signUpViewModel.Email;
-                newUsers.Password = (signUpViewModel.Password);
+                newUsers.Password = signUpViewModel.Password;
                 newUsers.CreatedOn = DateTime.Now;
                 newUsers.IsActive = true;
-                newUsers.IsVerified = false;
+                //newUsers.IsVerified = false;
 
-                _db.Users.Add(newUsers);
-                Address newAddress = new Address();
-                newAddress.CountryId = Guid.Parse(signUpViewModel.Country);
-                newAddress.StateId = Convert.ToInt32(signUpViewModel.State);
-                newAddress.City = signUpViewModel.City;
-                newAddress.PostalCode = signUpViewModel.PIN_Code;
-                newAddress.IsActive = true;
-                newAddress.CreatedOn = DateTime.Now;
-                newAddress.CreatedBy = newUsers.Id;
-                _db.Add(newAddress);
+                //_db.Users.Add(newUsers);
+                //Address newAddress = new Address();
+                //newAddress.CountryId = Guid.Parse(signUpViewModel.Country);
+                ////newAddress.StateId = Convert.ToInt32(signUpViewModel.State);
+                //newAddress.City = signUpViewModel.City;
+                //newAddress.PostalCode = signUpViewModel.PIN_Code;
+                //newAddress.IsActive = true;
+                //newAddress.CreatedOn = DateTime.Now;
+                //newAddress.CreatedBy = newUsers.Id;
+                //_db.Add(newAddress);
 
-                newUsers.AddressId = newAddress.Id;
+                //newUsers.AddressId = newAddress.Id;
 
                 UserToken newToken = new UserToken();
                 newToken.UserId = newUsers.Id;
                 newToken.CreatedOn = DateTime.Now;
                 newToken.IsActive = true;
-                newToken.TokenTypeID = _db.TokenType.Where(x => x.Token_Description == "Demo" && x.IsActive == true).Select(x => x.TokenTypeID).FirstOrDefault();
+                newToken.TokenTypeID = _db.TokenTypes.Where(x => x.Token_Description == "Demo" && x.IsActive == true).Select(x => x.TokenTypeID).FirstOrDefault();
 
                 _db.UserTokens.Add(newToken);
                 _db.SaveChanges();

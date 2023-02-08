@@ -1,44 +1,70 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using UAParser;
+using GeoFinder.Model;
+using GeoFinder.Utility.Services.Interface;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RestSharp;
 using System.Net.Http.Headers;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace GeoFinder.API.Controllers
 {
-      [Route("api/[controller]")]
-      [ApiController]
-      public class NominatimController : ControllerBase
+    [ApiController]
+    [Route("api/[controller]")]
+      public class NominatimController : Controller
       {
           private IConfiguration configuration;
-          public NominatimController(IConfiguration _configuration)
-          {
-              configuration = _configuration;
+          public readonly ILogService _logService;
+        public NominatimController(IConfiguration _configuration, ILogService logService)
+        {
+            configuration = _configuration;
+            _logService = logService;
           }
 
         [HttpGet]
         [Route("Search")]
         public async Task<IActionResult> Search(string? search, string? format)
         {
-            if (string.IsNullOrEmpty(search))
-                throw new BadParameterException("input parameters are not correct for search");
+            try
+            {
 
-            if (string.IsNullOrEmpty(format))
-                throw new BadParameterException("input parameters are not correct for formate");
-            var contentResponse = "";
-            string apiEndPoint = this.configuration.GetSection("AppSettings")["NominatimAPIEndPoint"];
-            var SearchUrl = string.Format(apiEndPoint + "search?q={0}&format={1}", search, format);
-            var restClient = new RestClient(SearchUrl);
-            var request = new RestRequest(SearchUrl, Method.Get);
-            var response = await restClient.ExecuteAsync(request);
-            if (response.IsSuccessful)
-            {
-                contentResponse = response.Content;
+
+                if (string.IsNullOrEmpty(search))
+                    throw new BadParameterException("input parameters are not correct for search");
+
+                if (string.IsNullOrEmpty(format))
+                    throw new BadParameterException("input parameters are not correct for formate");
+                var contentResponse = "";
+                string apiEndPoint = this.configuration.GetSection("AppSettings")["NominatimAPIEndPoint"];
+                var searchUrl = string.Format(apiEndPoint + "search?q={0}&format={1}", search, format);
+                var restClient = new RestClient(searchUrl);
+                var request = new RestRequest(searchUrl, Method.Get);
+                var response = await restClient.ExecuteAsync(request);
+
+                
+
+                if (response.IsSuccessful)
+                {
+                    SearchLog searched = new SearchLog();
+                    var IPAddress = HttpContext.Connection.LocalIpAddress?.ToString();
+                    var userAgent = HttpContext.Request.Headers["User-Agent"];
+                    var uaParser = Parser.GetDefault();
+                    string? BrowserType = uaParser.Parse(userAgent).UserAgent.Family;
+
+                    await _logService.AddSearchLog(searchUrl, response.Content, apiEndPoint, search, format, BrowserType, IPAddress);
+
+                    contentResponse = response.Content;
+                }
+                else
+                {
+                    throw new HttpRequestException(response.ErrorMessage);
+                }
+                return Ok(contentResponse);
             }
-            else
-            {
-                throw new HttpRequestException(response.ErrorMessage);
+            catch(Exception ex)
+            { 
+                return BadRequest();
             }
-            return Ok(contentResponse);
         }
 
         [HttpGet]
@@ -64,10 +90,10 @@ namespace GeoFinder.API.Controllers
 
         [HttpGet]
         [Route("Reverse")]
-        public async Task<IActionResult> Reverse(string? formate, string? latitude, string? longitute)
+        public async Task<IActionResult> Reverse(string? format, string? latitude, string? longitute)
         {
-            if (string.IsNullOrEmpty(formate))
-                throw new BadParameterException("input parameters are not correct for formate");
+            if (string.IsNullOrEmpty(format))
+                throw new BadParameterException("input parameters are not correct for format");
             if (string.IsNullOrEmpty(latitude))
                 throw new BadParameterException("input parameters are not correct for latitude");
             if (string.IsNullOrEmpty(longitute))
@@ -75,13 +101,20 @@ namespace GeoFinder.API.Controllers
 
             var contentResponse = "";
             string apiEndPoint = this.configuration.GetSection("AppSettings")["NominatimAPIEndPoint"];
-            string reverseURL = string.Format(apiEndPoint + "reverse?format={0}&lat={1}&lon={2}", formate, latitude, longitute);
+            string reverseURL = string.Format(apiEndPoint + "reverse?format={0}&lat={1}&lon={2}", format, latitude, longitute);
             var restClient = new RestClient(reverseURL);
             var request = new RestRequest(reverseURL, Method.Get);
             var response = await restClient.ExecuteAsync(request);
 
             if (response.IsSuccessful)
             {
+                SearchLog searched = new SearchLog();
+                var IPAddress = HttpContext.Connection.RemoteIpAddress?.ToString();
+                var userAgent = HttpContext.Request.Headers["User-Agent"];
+                var uaParser = Parser.GetDefault();
+                string? BrowserType = uaParser.Parse(userAgent).UserAgent.Family;
+
+                await _logService.AddReverseLog(reverseURL, response.Content, apiEndPoint, format, latitude, longitute, BrowserType, IPAddress);
                 contentResponse = response.Content;
                 new BadParameterException("Response content Ok");
             }
@@ -108,6 +141,13 @@ namespace GeoFinder.API.Controllers
 
             if (response.IsSuccessful)
             {
+                SearchLog searched = new SearchLog();
+                var IPAddress = HttpContext.Connection.RemoteIpAddress?.ToString();
+                var userAgent = HttpContext.Request.Headers["User-Agent"];
+                var uaParser = Parser.GetDefault();
+                string? BrowserType = uaParser.Parse(userAgent).UserAgent.Family;
+
+                await _logService.AddDetailLog(lookupURL, response.Content, apiEndPoint, osm_id, BrowserType, IPAddress,"lookup");
                 contentResponse = response.Content;
             }
             else
@@ -118,34 +158,37 @@ namespace GeoFinder.API.Controllers
         }
         [HttpGet]
         [Route("Details")]
-        public async Task<IActionResult> Deatails(string? osm_id, bool isThisPlaceID)
+        public async Task<IActionResult> Details(string? osm_id)
         {
 
             if (string.IsNullOrEmpty(osm_id))
                 throw new BadParameterException("input parameters are not correct for osm_id");
 
             var contentResponse = "";
-            string lookupURL = string.Empty;
-            string osm_type = string.Empty;
-            string osmid = string.Empty;
+            string detailURL = string.Empty;
             string apiEndPoint = this.configuration.GetSection("AppSettings")["NominatimAPIEndPoint"];
-            if (isThisPlaceID)
+            if (osm_id.All(Char.IsNumber))
             {
-                lookupURL = string.Format(apiEndPoint + "details?place_id={0}&format=json", osm_id);
+                detailURL = string.Format(apiEndPoint + "details?place_id={0}&format=json", osm_id);
             }
             else
             {
-                osm_type = osm_id.Substring(0, 1);
-                osmid = osm_id.Remove(0, 1);
-                lookupURL = string.Format(apiEndPoint + "details.php?osmtype={0}&osmid={1}&format=json", osm_type, osmid);
+                detailURL = string.Format(apiEndPoint + "details.php?osmtype={0}&osmid={1}&format=json", osm_id.Substring(0, 1), osm_id.Remove(0, 1));
             }
-
-            var restClient = new RestClient(lookupURL);
-            var request = new RestRequest(lookupURL, Method.Get);
+            var restClient = new RestClient(detailURL);
+            var request = new RestRequest(detailURL, Method.Get);
             var response = await restClient.ExecuteAsync(request);
 
             if (response.IsSuccessful)
             {
+                SearchLog searched = new SearchLog();
+                var IPAddress = HttpContext.Connection.RemoteIpAddress?.ToString();
+                var userAgent = HttpContext.Request.Headers["User-Agent"];
+                var uaParser = Parser.GetDefault();
+                string? BrowserType = uaParser.Parse(userAgent).UserAgent.Family;
+                string? IP = uaParser.Parse(IPAddress).ToString();
+
+                await _logService.AddDetailLog(detailURL, response.Content, apiEndPoint, osm_id, BrowserType, IPAddress, "Details");
                 contentResponse = response.Content;
             }
             else

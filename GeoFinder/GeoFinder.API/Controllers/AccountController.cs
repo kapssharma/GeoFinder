@@ -37,11 +37,11 @@ namespace GeoFinder.API.Controllers
             var response = await _geoFinderService.SignIn(SignInModel);
             if (response.Success)
             {
-                return Ok(response);
+                return View(response);
             }
             else
             {
-                return NotFound(response);
+                return View(response);
             }
         }
     }

@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using System.Net.Sockets;
 using Microsoft.Extensions.Configuration;
 using GeoFinder.Utility.Repository.Interface;
+using Microsoft.EntityFrameworkCore.SqlServer.Query.Internal;
 
 namespace GeoFinder.Utility.Repository.Implementation
 {
@@ -75,18 +76,21 @@ namespace GeoFinder.Utility.Repository.Implementation
                 newUsers.Password = signUpViewModel.Password;
                 newUsers.CreatedOn = DateTime.Now;
                 newUsers.IsActive = true;
+                newUsers.RoleId = Guid.NewGuid();
                 //newUsers.IsVerified = false;
 
-                //_db.Users.Add(newUsers);
-                //Address newAddress = new Address();
+                _db.Users.Add(newUsers);
+                Address newAddress = new Address();
                 //newAddress.CountryId = Guid.Parse(signUpViewModel.Country);
-                ////newAddress.StateId = Convert.ToInt32(signUpViewModel.State);
-                //newAddress.City = signUpViewModel.City;
-                //newAddress.PostalCode = signUpViewModel.PIN_Code;
-                //newAddress.IsActive = true;
-                //newAddress.CreatedOn = DateTime.Now;
-                //newAddress.CreatedBy = newUsers.Id;
-                //_db.Add(newAddress);
+                //newAddress.StateId = Guid.Parse(signUpViewModel.State);
+                newAddress.CountryId = Guid.NewGuid();
+                newAddress.StateId = Guid.NewGuid();
+                newAddress.City = signUpViewModel.City;
+                newAddress.PostalCode = signUpViewModel.PIN_Code;
+                newAddress.IsActive = true;
+                newAddress.CreatedOn = DateTime.Now;
+                newAddress.CreatedBy = newUsers.Id;
+                _db.Add(newAddress);
 
                 //newUsers.AddressId = newAddress.Id;
 
@@ -127,6 +131,7 @@ namespace GeoFinder.Utility.Repository.Implementation
                 }
                 else
                 {
+                    var a = Guid.NewGuid();
                     string password = signInModel.Password;
                     string emailAddr = _db.Users.Where(x => x.EmailAddress == receiverEmail && x.IsActive == true).Select(x => x.EmailAddress).FirstOrDefault();
                     string pass = _db.Users.Where(x => x.Password == password && x.IsActive == true).Select(x => x.Password).FirstOrDefault();

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yBnPjTcwhOmz+vv8CqlHs8We7SzXdr3KmtNHRm3nBtqevOvNk7bmRPTRuLev3SkdbGZzHQmr/k40e6M1E+inaA==",
+  "dgSpecHash": "h/GOJqdV9dcEBXVGxWAkrWjzuM76tV2z2XzbAB86ScKgnYGJNdiVkNKmF07mQSA5JMpRoEePHI0DkLie/i2Xgg==",
   "success": true,
-  "projectFilePath": "D:\\GeoFinder\\GeoFinder\\GeoFinder.Data\\GeoFinder.Data.csproj",
+  "projectFilePath": "D:\\New folder\\GeoFinder\\GeoFinder\\GeoFinder.Data\\GeoFinder.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\PC\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

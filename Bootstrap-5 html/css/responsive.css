@@ -1,0 +1,443 @@
+@media only screen and (max-width: 1400px){
+    .business_card h4 {
+        font-size: 24px;
+    }
+}
+@media only screen and (max-width: 1339px){
+    .post_card h5 {
+        font-size: 28px;
+    }
+    .business_card h4 {
+        font-size: 20px;
+    }
+}
+@media only screen and (max-width: 1199px){
+    .banner_content {
+        padding-left: 100px;
+    }
+    .banner_content h1,.common_title h2 {
+        font-size: 42px;
+    }
+    .business_card {
+        min-height: 324px;
+    }
+    .business_card img {
+        width: 65px;
+    }
+    .text-left h2 {
+        font-size: 32px;
+    }
+    .text-left h3 {
+        font-size: 25px;
+    }
+    #v-account_details, #v-access_tokens, #v-billing {
+        padding: 30px;
+    }
+    .token_table tr, .token_table th, .token_table td {
+        width: 170px;
+    }
+    #v-billing .token_table tr td button {
+        width: 110px;
+    }
+    #v-billing .token_table table{
+        table-layout: fixed;
+    }
+    .token_table {
+        overflow-x: auto;
+    }
+    .sidebar ul li a {
+        gap: 15px;
+        font-size: 16px;
+    }
+    .sidebar ul li {
+        padding: 0 15px;
+    }
+    .chart_data img {
+        object-fit: cover;
+    }
+    .edit_btn  button {
+        padding: 10px 20px 6px;
+        font-size: 14px;
+    }
+    .user_profile {
+        gap: 20px;
+        padding-left: 15px;
+    }
+    .user_profile h4 {
+        font-size: 20px;
+    }
+    .user_profile img {
+        width: 60px;
+    }
+    .tab-content-title {
+        font-size: 25px;
+    }
+    .token_table .table {
+        table-layout: fixed;
+    }
+}
+@media only screen and (max-width: 991px){
+    .content_inner {
+        padding-left: 20px;
+    }
+    .tab_dark_bg .content_inner h3 {
+        font-size: 32px;
+    }
+    .tab_dark_bg .content_inner p {
+        font-size: 16px;
+        margin-right: 60px;
+        margin-top: 10px;
+    }
+    .tab_dark_bg .content_inner button.cust_btn {
+        font-size: 14px;
+        right: -39px;
+        bottom: 51px;
+        border: none;
+    }
+    .icon {
+        margin-bottom: 0px;
+    }
+    .icon svg {
+        width: 45px;
+    }
+    .post_card p {
+        font-size: 14px;
+        padding-top: 8px;
+    }
+    .post_card.card_02 {
+        padding: 0 19px;
+    }
+    .post_card h5 {
+        font-size: 19px;
+    }
+    .business_card {
+        min-height: 280px;
+        padding: 60px 10px;
+    }
+    .business_card h4 {
+        font-size: 18px;
+    }
+    #tabs_section .nav-link.active ,#tabs_section .nav-link{
+        font-size: 16px;
+    }
+    .banner_content h1, .common_title h2 {
+        font-size: 32px;
+    }
+    span.circle_01 {
+        width: 150px;
+        height: 150px;
+        top: -60px;
+        left: -30px;
+    }
+    img.user_image {
+        width: 192px;
+        height: 192px;
+    }
+    .user_outer:after {
+        width: 215px;
+        height: 215px;
+        top: -12px;
+        left: -12px;
+    }
+    .custm_car .carousel-control-next,.custm_car .carousel-control-prev {
+        display: none;
+    }
+    section.clients {
+        margin: 50px 15px;
+    }
+    h3.footer_title {
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+    h3.footer_title + ul li {
+        margin-bottom: 18px;
+    }
+    .social_icon ul li a svg {
+        width: 20px;
+    }
+    h3.footer_title + ul li a {
+        font-size: 14px;
+    }
+    header {
+        padding: 0 40px;
+    }
+    .banner_content {
+        padding-left: 50px;
+    }
+    .main_logo{
+        width: 220px;
+    }
+    #banner_section a {
+        padding: 20px 100px;
+    }
+    .tab_dark_bg {
+        margin-top: 60px;
+    }
+    footer#footer:before {
+        top: -4px;
+        border-top-left-radius: 80px;
+        border-top-right-radius: 80px;
+    }
+    .outter_main {
+        padding: 90px 40px 60px;
+    }
+    .text-left p {
+        font-size: 15px;
+    }
+    .test_indica {
+        bottom: 0px;
+        justify-content: center;
+    }
+    .case_common {
+        padding: 40px 0;
+    }
+    .common_title.dark ,.common_title.white{
+        margin-bottom: 30px !important;
+    }
+    footer#footer {
+        border-top-left-radius: 80px;
+        border-top-right-radius: 80px;
+        padding: 60px 0 50px;
+    }
+    .tabs_main {
+        margin-top: 30px;
+    }
+    .text-left h2 {
+        font-size: 26px;
+    }
+    .text-left h3 {
+        font-size: 20px;
+    }
+    .tab-content-title {
+        font-size: 20px;
+    }
+    .card_title p {
+        font-size: 14px;
+    }
+    .card_title .alert.alert-warning {
+        font-size: 12px;
+    }
+    .sidebar ul {
+        margin-top: 30px;
+    }
+    .user_profile h5 {
+        font-size: 16px;
+    }
+    .user_profile h4 {
+        font-size: 18px;
+    }
+    p.text_footer, p.text_footer a {
+        margin-bottom: 30px;
+    }
+    .social_icon {
+        margin-top: 50px;
+    }
+    h3.footer_title + ul {
+        margin-bottom: 40px;
+    }
+    .pricing_card .card_price {
+        font-size: 40px;
+    }
+    span.card_offer {
+        font-size: 16px;
+    }
+    .pricing_card .card_top h2 {
+        font-size: 26px;
+    }
+    
+}
+@media only screen and (max-width: 767px){
+    #banner_section {
+        background-position: inherit;
+    }
+    .main_logo {
+        width: 175px;
+        height: auto;
+        padding-top: 10px;
+    }
+    header {
+        padding: 0 20px;
+    }
+    .banner_content {
+        padding-left: 20px;
+    }
+    .tabs_main > ul {
+        gap: 10px;
+    }
+    #tabs_section .nav-link.active, #tabs_section .nav-link{
+        padding: 12px 20px;
+    }
+    .cards_outter {
+        margin-top: 20px;
+    }
+    .content_inner {
+        padding-left: 0;
+    }
+    .post_card.card_02 {
+        padding: 20px;
+    }
+    .common_title p {
+        line-height: 1.5;
+    }
+    .main_testo {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .business_card {
+        padding: 60px 10px;
+        margin-bottom: 15px;
+    }
+    section#built_bussiness {
+        padding: 60px 15px 50px;
+    }
+    #banner_section a {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 99;
+    }
+    span.menu_text_div {
+        display: none;
+    }
+    .top_menu li:last-child a {
+        width: auto;
+    }
+    .top_menu li:last-child {
+        margin-left: 5px;
+    }
+    .top_menu li a {
+        font-size: 20px;
+    }
+    .top_menu li:last-child {
+        margin-left: 5px;
+        border-radius: 5px;
+    }
+    .menu_icon line#Line_1, .menu_icon line#Line_2 {
+        stroke-width: 3px !important;
+    }
+    .menu_icon {
+        padding: 0px 5px;
+    }
+    .overlay_menu ul {
+        flex-direction: column;
+    }
+    .overlay_menu ul li {
+        width: 100%;
+    }
+    .top_menu li:first-child,.top_menu li:last-child {
+        display: block;
+    }
+    
+    .top_menu li {
+        display: none;
+    }
+    .title_banner h2 {
+        font-size: 30px;
+    }
+    .login_main {
+        padding: 40px 20px 15px;
+    }
+    #form_main {
+        padding: 0 20px;
+    }
+    .signup_link {
+        margin-top: 50px;
+    }
+
+    .form_space h2 {
+        margin: 30px 0;
+    }
+    .login_main button.btn.btn-custom {
+        height: 50px;
+    }
+    .signup_link h2 {
+        line-height: 1.5;
+    }
+    .logo_footer img {
+        width: 180px;
+    }
+    footer#footer {
+        padding: 60px 30px 50px;
+    }
+    #v-account_details, #v-access_tokens, #v-billing {
+        padding: 20px;
+    }
+    .sidebar ul li {
+        height: 50px;
+        padding: 0px 20px;
+    }
+    .sidebar ul {
+        margin-top: 15px;
+    }
+    .user_profile {
+        padding-top: 25px;
+        padding-left: 20px;
+    }
+    .sidebar ul li a {
+        font-size: 18px;
+        gap: 15px;
+    }
+    
+    i.nav_icon {
+        width: 30px;
+    }
+    .user_profile img {
+        width: 65px;
+    }
+    .user_profile h4 {
+        font-size: 20px;
+    }
+    .user_profile h5 {
+        font-size: 16px;
+    }
+    .content_section {
+        margin-top: 40px;
+    }
+    .tab-content-title {
+        font-size: 26px;
+        line-height: 36px;
+        padding: 0;
+        text-align: center;
+    }
+    .token_table tr, .token_table th, .token_table td {
+        width: 150px;
+        font-size: 16px;
+        line-height: 26px;
+        padding: 10px 15px;
+    }
+    .token_table .table {
+        table-layout: fixed;
+    }
+    .token_table {
+        overflow-x: auto;
+    }
+    .card_title .tabs_main ul {
+        margin-right: auto;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    .card_title p ,.card_title .alert.alert-warning{
+        text-align: center;
+    }
+    .edit_btn {
+        text-align: right;
+        padding: 0;
+        margin-top: 0px;
+        margin-bottom: 15px;
+    }
+    #v-account_details .tab-content-title{
+        text-align: left;
+    }
+    .edit_btn button {
+        padding: 10px 10px 7px;
+        font-size: 14px;
+    }
+    #v-billing .token_table tr td button {
+        width: 120px;
+    }
+    section#dashboard {
+        padding: 15px 0 65px;
+    }
+}

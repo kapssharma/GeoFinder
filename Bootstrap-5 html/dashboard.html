@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/reset.css" rel="stylesheet">
+    <link href="css/main-style.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" />
+    <link rel="stylesheet" href="css/slick.css">
+    <title>Login</title>
+</head>
+
+<body>
+
+
+    <!-- header -->
+
+    <header class="inner_page dashboard_main">
+        <div class="container-fluid">
+            <div class="row justify-content-between align-items-center">
+                <div class="col-auto">
+                    <a href="javascript:void()" class="logo_inner">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="294.808" height="85"
+                            viewBox="0 0 294.808 93.526" class="main_logo">
+                            <g id="Group_2" data-name="Group 2" transform="translate(-146 -54.375)">
+                                <text id="Geo_Finder" data-name="Geo Finder" transform="translate(146 118)"
+                                    fill="#191917" font-size="45" font-family="FredokaOne-Regular, Fredoka One">
+                                    <tspan x="0" y="0">Geo Finder</tspan>
+                                </text>
+                                <g id="Group_4" data-name="Group 4" transform="translate(395.291 54.375)">
+                                    <path id="Path_1" data-name="Path 1"
+                                        d="M127.75,369.8v14.07a2.507,2.507,0,0,1-2.5,2.5H108.435a2.507,2.507,0,0,1-2.5-2.5V367.053a2.507,2.507,0,0,1,2.5-2.5h13.711v-2.86h-13.71a5.366,5.366,0,0,0-5.366,5.364v16.812a5.368,5.368,0,0,0,5.366,5.365h16.811a5.366,5.366,0,0,0,5.366-5.364V369.8Z"
+                                        transform="translate(-103.069 -343.012)" fill="#191917" />
+                                    <path id="Path_2" data-name="Path 2"
+                                        d="M251.639,261.254l-12.842,0a4.1,4.1,0,0,0-4.1,4.1V276.1h2.186V265.353a1.915,1.915,0,0,1,1.912-1.912H251.64a1.915,1.915,0,0,1,1.913,1.913v12.841a1.915,1.915,0,0,1-1.913,1.912H241.167v2.186l10.473,0a4.1,4.1,0,0,0,4.1-4.1V265.353A4.1,4.1,0,0,0,251.639,261.254Z"
+                                        transform="translate(-210.221 -261.254)" fill="#191917" />
+                                    <path id="Path_3" data-name="Path 3"
+                                        d="M225.61,353.446a1.915,1.915,0,0,1-1.915,1.915h-5.229a1.917,1.917,0,0,1-1.918-1.915v-5.228a1.918,1.918,0,0,1,1.918-1.918H223.7a1.918,1.918,0,0,1,1.915,1.917Z"
+                                        transform="translate(-195.445 -330.484)" fill="#191917" />
+                                    <path id="Path_4" data-name="Path 4"
+                                        d="M185.823,392.185a.96.96,0,0,1-.959.959H182.25a.959.959,0,0,1-.958-.959v-2.613a.959.959,0,0,1,.958-.959h2.614a.96.96,0,0,1,.959.959Z"
+                                        transform="translate(-166.745 -364.928)" fill="#191917" />
+                                    <path id="Path_5" data-name="Path 5"
+                                        d="M213.809,426.4a.5.5,0,0,1-.505.5h-1.376a.5.5,0,0,1-.5-.5v-1.374a.505.505,0,0,1,.5-.5H213.3a.505.505,0,0,1,.505.5Z"
+                                        transform="translate(-191.273 -394.161)" fill="#191917" />
+                                    <path id="Path_6" data-name="Path 6"
+                                        d="M199.6,323.747a.958.958,0,0,1-.958.958h-2.615a.958.958,0,0,1-.958-.959v-2.613a.959.959,0,0,1,.958-.959h2.614a.958.958,0,0,1,.958.959Z"
+                                        transform="translate(-177.963 -309.218)" fill="#191917" />
+                                    <path id="Path_7" data-name="Path 7"
+                                        d="M269.908,314.469a.4.4,0,0,1-.4.4h-1.1a.4.4,0,0,1-.4-.4v-1.1a.4.4,0,0,1,.4-.4h1.1a.4.4,0,0,1,.4.4Z"
+                                        transform="translate(-237.328 -303.35)" fill="#191917" />
+                                    <path id="Path_8" data-name="Path 8"
+                                        d="M262.7,406.308a.4.4,0,0,1-.4.4h-1.1a.4.4,0,0,1-.4-.4v-1.1a.4.4,0,0,1,.4-.4h1.1a.4.4,0,0,1,.4.4Z"
+                                        transform="translate(-231.46 -378.108)" fill="#191917" />
+                                    <path id="Path_9" data-name="Path 9"
+                                        d="M221.225,295.349a.176.176,0,0,1-.175.176h-.482a.177.177,0,0,1-.178-.176v-.481a.178.178,0,0,1,.178-.177h.482a.176.176,0,0,1,.175.177Z"
+                                        transform="translate(-198.571 -288.474)" fill="#191917" />
+                                    <path id="Path_10" data-name="Path 10"
+                                        d="M289.518,394.885a.178.178,0,0,1-.178.176h-.48a.177.177,0,0,1-.176-.176V394.4a.177.177,0,0,1,.176-.178h.48a.177.177,0,0,1,.178.178Z"
+                                        transform="translate(-254.165 -369.498)" fill="#191917" />
+                                    <path id="Path_11" data-name="Path 11"
+                                        d="M189.014,350.643a.175.175,0,0,1-.175.176h-.48a.177.177,0,0,1-.178-.176v-.481a.178.178,0,0,1,.178-.178h.48a.176.176,0,0,1,.175.178Z"
+                                        transform="translate(-172.352 -333.483)" fill="#191917" />
+                                    <path id="Path_12" data-name="Path 12"
+                                        d="M181.8,316.983a.176.176,0,0,1-.174.176h-.484a.176.176,0,0,1-.176-.176V316.5a.177.177,0,0,1,.176-.177h.484a.177.177,0,0,1,.174.177Z"
+                                        transform="translate(-166.481 -306.084)" fill="#191917" />
+                                    <path id="Path_13" data-name="Path 13"
+                                        d="M274.48,345.808a.554.554,0,0,1-.555.554h-1.513a.552.552,0,0,1-.552-.554v-1.515a.552.552,0,0,1,.552-.554h1.513a.554.554,0,0,1,.555.554Z"
+                                        transform="translate(-240.47 -328.4)" fill="#191917" />
+                                </g>
+                                <g id="Group_5" data-name="Group 5" transform="translate(395.291 101.682)">
+                                    <path id="Path_1-2" data-name="Path 1"
+                                        d="M127.75,369.8v14.07a2.507,2.507,0,0,1-2.5,2.5H108.435a2.507,2.507,0,0,1-2.5-2.5V367.053a2.507,2.507,0,0,1,2.5-2.5h13.711v-2.86h-13.71a5.366,5.366,0,0,0-5.366,5.364v16.812a5.368,5.368,0,0,0,5.366,5.365h16.811a5.366,5.366,0,0,0,5.366-5.364V369.8Z"
+                                        transform="translate(-103.069 -343.012)" fill="none" />
+                                    <path id="Path_2-2" data-name="Path 2"
+                                        d="M251.639,261.254l-12.842,0a4.1,4.1,0,0,0-4.1,4.1V276.1h2.186V265.353a1.915,1.915,0,0,1,1.912-1.912H251.64a1.915,1.915,0,0,1,1.913,1.913v12.841a1.915,1.915,0,0,1-1.913,1.912H241.167v2.186l10.473,0a4.1,4.1,0,0,0,4.1-4.1V265.353A4.1,4.1,0,0,0,251.639,261.254Z"
+                                        transform="translate(-210.221 -261.254)" fill="none" />
+                                    <path id="Path_3-2" data-name="Path 3"
+                                        d="M225.61,353.446a1.915,1.915,0,0,1-1.915,1.915h-5.229a1.917,1.917,0,0,1-1.918-1.915v-5.228a1.918,1.918,0,0,1,1.918-1.918H223.7a1.918,1.918,0,0,1,1.915,1.917Z"
+                                        transform="translate(-195.445 -330.484)" fill="none" />
+                                    <path id="Path_4-2" data-name="Path 4"
+                                        d="M185.823,392.185a.96.96,0,0,1-.959.959H182.25a.959.959,0,0,1-.958-.959v-2.613a.959.959,0,0,1,.958-.959h2.614a.96.96,0,0,1,.959.959Z"
+                                        transform="translate(-166.745 -364.928)" fill="none" />
+                                    <path id="Path_5-2" data-name="Path 5"
+                                        d="M213.809,426.4a.5.5,0,0,1-.505.5h-1.376a.5.5,0,0,1-.5-.5v-1.374a.505.505,0,0,1,.5-.5H213.3a.505.505,0,0,1,.505.5Z"
+                                        transform="translate(-191.273 -394.161)" fill="none" />
+                                    <path id="Path_6-2" data-name="Path 6"
+                                        d="M199.6,323.747a.958.958,0,0,1-.958.958h-2.615a.958.958,0,0,1-.958-.959v-2.613a.959.959,0,0,1,.958-.959h2.614a.958.958,0,0,1,.958.959Z"
+                                        transform="translate(-177.963 -309.218)" fill="none" />
+                                    <path id="Path_7-2" data-name="Path 7"
+                                        d="M269.908,314.469a.4.4,0,0,1-.4.4h-1.1a.4.4,0,0,1-.4-.4v-1.1a.4.4,0,0,1,.4-.4h1.1a.4.4,0,0,1,.4.4Z"
+                                        transform="translate(-237.328 -303.35)" fill="none" />
+                                    <path id="Path_8-2" data-name="Path 8"
+                                        d="M262.7,406.308a.4.4,0,0,1-.4.4h-1.1a.4.4,0,0,1-.4-.4v-1.1a.4.4,0,0,1,.4-.4h1.1a.4.4,0,0,1,.4.4Z"
+                                        transform="translate(-231.46 -378.108)" fill="none" />
+                                    <path id="Path_9-2" data-name="Path 9"
+                                        d="M221.225,295.349a.176.176,0,0,1-.175.176h-.482a.177.177,0,0,1-.178-.176v-.481a.178.178,0,0,1,.178-.177h.482a.176.176,0,0,1,.175.177Z"
+                                        transform="translate(-198.571 -288.474)" fill="none" />
+                                    <path id="Path_10-2" data-name="Path 10"
+                                        d="M289.518,394.885a.178.178,0,0,1-.178.176h-.48a.177.177,0,0,1-.176-.176V394.4a.177.177,0,0,1,.176-.178h.48a.177.177,0,0,1,.178.178Z"
+                                        transform="translate(-254.165 -369.498)" fill="none" />
+                                    <path id="Path_11-2" data-name="Path 11"
+                                        d="M189.014,350.643a.175.175,0,0,1-.175.176h-.48a.177.177,0,0,1-.178-.176v-.481a.178.178,0,0,1,.178-.178h.48a.176.176,0,0,1,.175.178Z"
+                                        transform="translate(-172.352 -333.483)" fill="none" />
+                                    <path id="Path_12-2" data-name="Path 12"
+                                        d="M181.8,316.983a.176.176,0,0,1-.174.176h-.484a.176.176,0,0,1-.176-.176V316.5a.177.177,0,0,1,.176-.177h.484a.177.177,0,0,1,.174.177Z"
+                                        transform="translate(-166.481 -306.084)" fill="none" />
+                                    <path id="Path_13-2" data-name="Path 13"
+                                        d="M274.48,345.808a.554.554,0,0,1-.555.554h-1.513a.552.552,0,0,1-.552-.554v-1.515a.552.552,0,0,1,.552-.554h1.513a.554.554,0,0,1,.555.554Z"
+                                        transform="translate(-240.47 -328.4)" fill="none" />
+                                </g>
+                            </g>
+                        </svg>
+
+                    </a>
+                </div>
+                <div class="col-auto">
+                    <ul class="top_menu">
+                        <li>
+                            <a href="javascript:void()">Login</a>
+                        </li>
+                        <li>
+                            |
+                        </li>
+                        <li>
+                            <a href="javascript:void()">Sign up</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" id="open_menu">
+                                <span class="menu_icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="9" viewBox="0 0 32 9">
+                                        <g id="Group_6" data-name="Group 6" transform="translate(-1568.162 -82.622)">
+                                            <line id="Line_1" data-name="Line 1" x2="26"
+                                                transform="translate(1568.162 83.122)" fill="none" stroke="#f9eac3"
+                                                stroke-width="1" />
+                                            <line id="Line_2" data-name="Line 2" x2="26"
+                                                transform="translate(1574.162 91.122)" fill="none" stroke="#f9eac3"
+                                                stroke-width="1" />
+                                        </g>
+                                    </svg>
+
+                                </span>
+                                <span class="menu_text_div">
+                                    <p class="menu_text menu_inner_text">Menu</p>
+                                    <p class="click_text menu_inner_text">Click </p>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="overlay_menu" id="overlay_menu">
+            <ul>
+                <li class="bg-yellow">
+                    <a href="javascript:void()" class="stretched-link">Products</a>
+                </li>
+                <li class="bg_dark">
+                    <a href="javascript:void()" class="stretched-link">Demo</a>
+                </li>
+                <li class="bg-yellow">
+                    <a href="javascript:void()" class="stretched-link">Pricing</a>
+                </li>
+                <li class="bg_dark">
+                    <a href="javascript:void()" class="stretched-link">Contact</a>
+                </li>
+            </ul>
+            <a href="javascript:void(0)" id="close">Close</a>
+        </div>
+    </header>
+
+    <!-- banner section -->
+    <section id="dashboard" class="">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-lg-3">
+                    <div class="sidebar">
+                        <div class="user_profile">
+                            <img src="images/s.png" alt="">
+                            <div class="">
+                                <h4>John Doe</h4>
+                                <h5>Admin</h5>
+                            </div>
+                        </div>
+
+                        <ul role="tablist">
+                            <li class="active" data-bs-toggle="pill" data-bs-target="#v-geocoding">
+                                <a href="javascript:void()">
+                                    <i class="nav_icon">
+                                        <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill="#adadad"
+                                            fill-rule="evenodd" clip-rule="evenodd">
+                                            <path
+                                                d="M22 11.414v12.586h-20v-12.586l-1.293 1.293-.707-.707 12-12 12 12-.707.707-1.293-1.293zm-6 11.586h5v-12.586l-9-9-9 9v12.586h5v-9h8v9zm-1-7.889h-6v7.778h6v-7.778z" />
+                                        </svg>
+                                    </i>Geocoding APIs</a>
+                            </li>
+                            <li data-bs-toggle="pill" data-bs-target="#v-routing">
+                                <a href="javascript:void()">
+                                    <i class="nav_icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24">
+                                            <path id="Path_18" data-name="Path 18"
+                                                d="M5,9a3,3,0,1,1-3,3A3,3,0,0,1,5,9ZM5,7a5,5,0,1,0,5,5A5,5,0,0,0,5,7Zm15,9a3.974,3.974,0,0,0-2.935,1.3l-5.488-2.927a6.945,6.945,0,0,1-.944,1.764l5.488,2.927A3.994,3.994,0,1,0,20,16Zm0,6a2,2,0,1,1,2-2A2,2,0,0,1,20,22ZM20,0a4,4,0,0,0-4,4,4,4,0,0,0,.121.935L10.633,7.862a6.993,6.993,0,0,1,.944,1.764L17.065,6.7A3.995,3.995,0,1,0,20,0Zm0,6a2,2,0,1,1,2-2A2,2,0,0,1,20,6Z"
+                                                fill="#adadad" />
+                                        </svg>
+                                    </i>Routing APIs</a>
+                            </li>
+                            <li data-bs-toggle="pill" data-bs-target="#v-map">
+                                <a href="javascript:void()">
+                                    <i class="nav_icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18.667" height="28"
+                                            viewBox="0 0 18.667 28">
+                                            <path id="Path_19" data-name="Path 19"
+                                                d="M13.333,2.333c3.729,0,7,3.054,7,6.536,0,3.608-2.909,8.321-7,14.771-4.092-6.451-7-11.163-7-14.771,0-3.481,3.271-6.536,7-6.536m0-2.333C8.436,0,4,3.97,4,8.869S8.047,19.614,13.333,28c5.286-8.386,9.333-14.233,9.333-19.131S18.232,0,13.333,0Zm0,12.833a3.5,3.5,0,1,1,3.5-3.5A3.5,3.5,0,0,1,13.333,12.833Z"
+                                                transform="translate(-4)" fill="#adadad" />
+                                        </svg>
+                                    </i>Maps</a>
+                            </li>
+                            <li data-bs-toggle="pill" data-bs-target="#v-account_details">
+                                <a href="javascript:void()">
+                                    <i class="nav_icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20.668" height="24.802"
+                                            viewBox="0 0 20.668 24.802">
+                                            <path id="Path_20" data-name="Path 20"
+                                                d="M22.668,0H2V24.8H16.468l6.2-6.2ZM15.434,23.768H3.033V1.033h18.6V17.568h-6.2ZM16.468,18.6h4.739L16.468,23.34Zm-3.1,1.033H5.1v1.033h8.267Zm0-3.1H5.1v1.033h8.267Zm6.2-2.067V13.434H5.1v1.033Zm0-4.134H15.434v1.033h4.134Zm-6.207,1.033H5.1l0-.815c0-.744-.006-1.669,1.358-1.984,1.533-.352,1.277-.432,1.2-.582-1.114-2.054-.734-3.279-.408-3.827A2.236,2.236,0,0,1,9.234,3.1a2.226,2.226,0,0,1,1.974,1.045c.563.934.423,2.3-.392,3.837-.109.2-.2.264,1.156.578,1.4.322,1.4,1.252,1.4,2l-.006.807ZM6.134,10.334h6.2c-.007-.565-.072-.647-.558-.759-.884-.2-1.683-.389-1.964-1A1.178,1.178,0,0,1,9.9,7.5c.63-1.189.783-2.218.421-2.82a1.228,1.228,0,0,0-1.088-.544,1.209,1.209,0,0,0-1.1.555c-.364.61-.208,1.633.428,2.8a1.171,1.171,0,0,1,.1,1.074c-.278.618-1.071.8-1.909.994-.543.125-.613.209-.619.773ZM19.568,8.267V7.234H15.434V8.267Zm0-4.134H15.434V5.167h4.134Z"
+                                                transform="translate(-2)" fill="#adadad" fill-rule="evenodd" />
+                                        </svg>
+                                    </i>Account details</a>
+                            </li>
+                            <li data-bs-toggle="pill" data-bs-target="#v-access_tokens">
+                                <a href="javascript:void()">
+                                    <i class="nav_icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24.607" height="22.557"
+                                            viewBox="0 0 24.607 22.557">
+                                            <path id="Path_21" data-name="Path 21"
+                                                d="M16.4,1a8.209,8.209,0,0,0-8.016,9.95L0,18.43v5.127H6.152V21.506H8.2V19.456h2.051L13.4,16.835A8.2,8.2,0,1,0,16.4,1ZM9.882,18.43l3.326-2.771a7.806,7.806,0,0,0,3.2.721A7.177,7.177,0,1,0,9.228,9.2a8.794,8.794,0,0,0,.29,2.114L1.025,18.89v3.642h4.1V20.481H7.177V18.43Zm.172-4.1-.684-.764-7.32,6.564v1.377l8-7.177ZM20.506,7.152A2.051,2.051,0,1,0,18.456,9.2,2.051,2.051,0,0,0,20.506,7.152Zm-1.025,0a1.025,1.025,0,1,0-1.025,1.025A1.026,1.026,0,0,0,19.481,7.152Z"
+                                                transform="translate(0 -1)" fill="#adadad" fill-rule="evenodd" />
+                                        </svg>
+                                    </i>API Access Tokens</a>
+                            </li>
+                            <li data-bs-toggle="pill" data-bs-target="#v-billing">
+                                <a href="javascript:void()">
+                                    <i class="nav_icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="24"
+                                            viewBox="0 0 20 24">
+                                            <path id="Path_22" data-name="Path 22"
+                                                d="M17,13H7V12H17Zm0-4H7v1H17Zm0-3H7V7H17ZM2,5V0H8V2H4V5Zm8-5V2h4V0Zm6,2h4V5h2V0H16Zm6,5H20v4h2ZM2,17H4V13H2Zm18-4v.543C20,17.65,14,16,14,16s1.518,6-2.638,6H10v2h2.189C15.352,24,22,16.777,22,14.386V13ZM2,11H4V7H2ZM4,22V19H2v5H8V22Z"
+                                                transform="translate(-2)" fill="#adadad" />
+                                        </svg>
+                                    </i>Billing</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void()">
+                                    <i class="nav_icon">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="31.2" height="26"
+                                            viewBox="0 0 31.2 26">
+                                            <path id="Path_23" data-name="Path 23"
+                                                d="M18.2,24.1v-.108A10.395,10.395,0,1,1,13,4.6a10.31,10.31,0,0,1,5.2,1.408V3.089a13,13,0,1,0,0,23.821Zm5.2-12.47L27.252,15,23.4,18.37V16.3H13V13.7H23.4ZM20.8,5.9v5.2H10.4v7.8H20.8v5.2L31.2,15Z"
+                                                transform="translate(0 -2)" fill="#adadad" />
+                                        </svg>
+                                    </i>Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-8 col-lg-9">
+                    <div class="content_section">
+                        <div class="tab-content" style="color: #ffffff;">
+                            <div class="tab-pane fade show active" id="v-geocoding">
+                                <div class="chart_data">
+                                    <img src="images/chart.jpeg" alt="">
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="v-routing">
+                                <div class="chart_data">
+                                    <img src="images/chart.jpeg" alt="">
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="v-map">
+                                <div class="chart_data">
+                                    <img src="images/chart.jpeg" alt="">
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="v-account_details">
+                                <div class="row">
+                                    <div class="col-6 col-md-6">
+                                        <h2 class="tab-content-title">Profile</h2>
+                                    </div>
+                                    <div class="col-6 col-md-6">
+                                        <div class="edit_btn">
+                                            <button class="btn">Edit Profile</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form_account">
+                                    <div class="mb-3 row">
+                                        <label for="staticName" class="col-md-3 col-lg-2 col-form-label">Name</label>
+                                        <div class="col-md-9 col-lg-10">
+                                            <input type="text" readonly class="form-control-plaintext" id="staticName"
+                                                value="Prince Kumar">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="staticEmail" class="col-md-3 col-lg-2 col-form-label">Email</label>
+                                        <div class="col-md-9 col-lg-10">
+                                            <input type="text" readonly class="form-control-plaintext" id="staticEmail"
+                                                value="prince.kumar@digisoftsolution.net">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="inputPassword" class="col-md-3 col-lg-2 col-form-label">Password</label>
+                                        <div class="col-md-9 col-lg-10 text_middle">
+                                            <a href="javascript:void()">Change Password</a>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="staticCompany" class="col-md-3 col-lg-2 col-form-label">Company</label>
+                                        <div class="col-md-9 col-lg-10">
+                                            <input type="text" readonly class="form-control-plaintext"
+                                                id="staticCompany" value="Digisoft Solution">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="staticStreet" class="col-md-3 col-lg-2 col-form-label">Street</label>
+                                        <div class="col-md-9 col-lg-10">
+                                            <input type="text" readonly class="form-control-plaintext" id="staticStreet"
+                                                value="">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="staticCity" class="col-md-3 col-lg-2 col-form-label">City</label>
+                                        <div class="col-md-9 col-lg-10">
+                                            <input type="text" readonly class="form-control-plaintext" id="staticCity"
+                                                value="">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="staticZip" class="col-md-3 col-lg-2 col-form-label">Zip</label>
+                                        <div class="col-md-9 col-lg-10">
+                                            <input type="text" readonly class="form-control-plaintext" id="staticZip"
+                                                value="">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="staticCountry" class="col-md-3 col-lg-2 col-form-label">Country</label>
+                                        <div class="col-md-9 col-lg-10">
+                                            <input type="text" readonly class="form-control-plaintext"
+                                                id="staticCountry" value="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="v-access_tokens">
+                                <div class="card_title">
+                                    <h2 class="tab-content-title">Manage your API Access Tokens</h2>
+                                    <p>You need Access Tokens to use our APIs. We recommend creating one token per
+                                        application or website. If you use them on public websites where anyone can see
+                                        your code (websites, apps etc), rotate them often and use HTTP Referrer
+                                        restrictions to limit abuse.</p>
+                                    <div class="alert alert-warning" role="alert">
+                                        Your plan allows <b> 1 Access Token </b> and you've reached this limit. To
+                                        create more tokens, please <a href="#" class="alert-link">upgrade your
+                                            account.</a>
+                                    </div>
+                                </div>
+                                <div class="token_table">
+                                    <table class="table table-bordered table-responsive">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Label</th>
+                                                <th scope="col">Access Token</th>
+                                                <th scope="col">Created On</th>
+                                                <th scope="col"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Access Token 1</td>
+                                                <td><a href="javascript:void()">Show Token</a></td>
+                                                <td>12 August 2022 05:43 AM UTC</td>
+                                                <td><button class="btn">View</button><button class="btn">Logs</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Access Token 1</td>
+                                                <td><a href="javascript:void()">Show Token</a></td>
+                                                <td>12 August 2022 05:43 AM UTC</td>
+                                                <td><button class="btn">View</button><button class="btn">Logs</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Access Token 1</td>
+                                                <td><a href="javascript:void()">Show Token</a></td>
+                                                <td>12 August 2022 05:43 AM UTC</td>
+                                                <td><button class="btn">View</button><button class="btn">Logs</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Access Token 1</td>
+                                                <td><a href="javascript:void()">Show Token</a></td>
+                                                <td>12 August 2022 05:43 AM UTC</td>
+                                                <td><button class="btn">View</button><button class="btn">Logs</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Access Token 1</td>
+                                                <td><a href="javascript:void()">Show Token</a></td>
+                                                <td>12 August 2022 05:43 AM UTC</td>
+                                                <td><button class="btn">View</button><button class="btn">Logs</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Access Token 1</td>
+                                                <td><a href="javascript:void()">Show Token</a></td>
+                                                <td>12 August 2022 05:43 AM UTC</td>
+                                                <td><button class="btn">View</button><button class="btn">Logs</button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="v-billing">
+                                <div class="card_title">
+                                    <div class="row">
+                                        <div class="col-md-4 col-lg-6">
+                                            <h2 class="tab-content-title">Pricing Plans</h2>
+                                        </div>
+                                        <div class="col-md-8 col-lg-6">
+                                            <div class="tabs_main">
+                                                <ul class="nav nav-pills justify-content-center" id="pills-tab"
+                                                    role="tablist">
+                                                    <li class="nav-item" role="presentation">
+                                                        <button class="nav-link active" id="pills-home-tab"
+                                                            data-bs-toggle="pill" data-bs-target="#pills-home"
+                                                            type="button" role="tab" aria-controls="pills-home"
+                                                            aria-selected="true">Monthly</button>
+                                                    </li>
+                                                    <li class="nav-item" role="presentation">
+                                                        <button class="nav-link" id="pills-profile-tab"
+                                                            data-bs-toggle="pill" data-bs-target="#pills-profile"
+                                                            type="button" role="tab" aria-controls="pills-profile"
+                                                            aria-selected="false" tabindex="-1">Annual</button>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="alert alert-warning" role="alert">
+                                        Please <a href="#" class="alert-link">CONTACT SALES </a> for India-specific
+                                        pricing plans with GST billing.
+                                    </div>
+                                </div>
+
+                                <div class="tab-content" id="pills-tabContent">
+                                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+                                        <div class="token_table">
+                                            <table class="table table-bordered table-responsive">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col"></th>
+                                                        <th scope="col">Requests /day</th>
+                                                        <th scope="col">Rate limit /second</th>
+                                                        <th scope="col">Cost per month</th>
+                                                        <th scope="col"></th>
+
+        
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Free</td>
+                                                        <td>5,000 /day</td>
+                                                        <td>2 /sec</td>
+                                                        <td>Free</td>
+                                                        <td><button class="btn">Current Plan</button></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Developer</td>
+                                                        <td>25,000 /day</td>
+                                                        <td>20 /sec</td>
+                                                        <td>$99</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Starter</td>
+                                                        <td>60,000 /day </td>
+                                                        <td>22 /sec</td>
+                                                        <td>$200</td>
+                                                        <td></td>
+        
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Growth</td>
+                                                        <td>100,000 /day</td>
+                                                        <td>25 /sec</td>
+                                                        <td>$350</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Growth Plus</td>
+                                                        <td>250,000 /day</td>
+                                                        <td>30 /sec</td>
+                                                        <td>$500</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Business</td>
+                                                        <td>500,000 /day</td>
+                                                        <td>35 /sec</td>
+                                                        <td>$750</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Business Plus</td>
+                                                        <td>1,000,000 /day</td>
+                                                        <td>40 /sec</td>
+                                                        <td>$950</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Enterprise</td>
+                                                        <td>2,000,000 /day </td>
+                                                        <td>55 /sec</td>
+                                                        <td>$14,50</td>
+                                                        <td></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
+                                        <div class="token_table">
+                                            <table class="table table-bordered table-responsive">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col"></th>
+                                                        <th scope="col">Requests /day</th>
+                                                        <th scope="col">Rate limit /second</th>
+                                                        <th scope="col">Cost per year</th>
+                                                        <th scope="col"></th>
+        
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Free</td>
+                                                        <td>5,000 /day</td>
+                                                        <td>2 /sec</td>
+                                                        <td>Free</td>
+                                                        <td><button class="btn">Current Plan</button></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Developer</td>
+                                                        <td>25,000 /day</td>
+                                                        <td>20 /sec</td>
+                                                        <td>$990</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Starter</td>
+                                                        <td>60,000 /day </td>
+                                                        <td>22 /sec</td>
+                                                        <td>$2000</td>
+                                                        <td></td>
+        
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Growth</td>
+                                                        <td>100,000 /day</td>
+                                                        <td>25 /sec</td>
+                                                        <td>$3500</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Growth Plus</td>
+                                                        <td>250,000 /day</td>
+                                                        <td>30 /sec</td>
+                                                        <td>$5000</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Business</td>
+                                                        <td>500,000 /day</td>
+                                                        <td>35 /sec</td>
+                                                        <td>$7500</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Business Plus</td>
+                                                        <td>1,000,000 /day</td>
+                                                        <td>40 /sec</td>
+                                                        <td>$9500</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Enterprise</td>
+                                                        <td>2,000,000 /day </td>
+                                                        <td>55 /sec</td>
+                                                        <td>$14,500</td>
+                                                        <td></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- footer start -->
+
+    <footer id="footer">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="logo_footer">
+                        <img src="images/footer.png" alt="">
+                    </div>
+                    <div class="dis_footer">
+                        <p>
+                            Whether you’re shopping for the best type of hiking boots, interior decorating tips, or a
+                            new, boots, interior decorating tips, or a new favorite
+                        </p>
+                    </div>
+
+                    <div class="social_icon">
+                        <ul>
+                            <li>
+                                <a href="javascript:void()">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="24" viewBox="0 0 12 24">
+                                        <path id="iconmonstr-facebook-1"
+                                            d="M9,8H6v4H9V24h5V12h3.642L18,8H14V6.333C14,5.378,14.192,5,15.115,5H18V0H14.192C10.6,0,9,1.583,9,4.615Z"
+                                            transform="translate(-6)" fill="#fff" />
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void()">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="29.532" height="24"
+                                        viewBox="0 0 29.532 24">
+                                        <path id="iconmonstr-twitter-1"
+                                            d="M29.532,5.089a12.1,12.1,0,0,1-3.48.954,6.069,6.069,0,0,0,2.664-3.352,12.137,12.137,0,0,1-3.848,1.47A6.063,6.063,0,0,0,14.543,9.686,17.2,17.2,0,0,1,2.056,3.357,6.067,6.067,0,0,0,3.93,11.446a6.033,6.033,0,0,1-2.743-.758,6.063,6.063,0,0,0,4.859,6.017,6.073,6.073,0,0,1-2.737.1,6.063,6.063,0,0,0,5.66,4.207A12.182,12.182,0,0,1,0,23.526a17.152,17.152,0,0,0,9.288,2.722c11.249,0,17.605-9.5,17.221-18.022a12.336,12.336,0,0,0,3.023-3.137Z"
+                                            transform="translate(0 -2.248)" fill="#fff" />
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void()">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <path id="iconmonstr-instagram-11"
+                                            d="M12,2.163c3.2,0,3.584.012,4.85.07,3.252.148,4.771,1.691,4.919,4.919.058,1.265.069,1.645.069,4.849s-.012,3.584-.069,4.849c-.149,3.225-1.664,4.771-4.919,4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.849-.07c-3.26-.149-4.771-1.7-4.919-4.92-.058-1.265-.07-1.644-.07-4.849s.013-3.583.07-4.849C2.381,3.924,3.9,2.38,7.151,2.232,8.417,2.175,8.8,2.163,12,2.163ZM12,0C8.741,0,8.333.014,7.053.072,2.7.272.273,2.69.073,7.052.014,8.333,0,8.741,0,12s.014,3.668.072,4.948c.2,4.358,2.618,6.78,6.98,6.98C8.333,23.986,8.741,24,12,24s3.668-.014,4.948-.072c4.354-.2,6.782-2.618,6.979-6.98C23.986,15.668,24,15.259,24,12s-.014-3.667-.072-4.947c-.2-4.354-2.617-6.78-6.979-6.98C15.668.014,15.259,0,12,0Zm0,5.838A6.163,6.163,0,1,0,18.162,12,6.162,6.162,0,0,0,12,5.838ZM12,16a4,4,0,1,1,4-4A4,4,0,0,1,12,16ZM18.406,4.155a1.44,1.44,0,1,0,1.439,1.44A1.441,1.441,0,0,0,18.406,4.155Z"
+                                            fill="#fff" />
+                                    </svg>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <p class="text_footer">© 2021, Geo Finder Powered by <a href="javascript:void()">Digisoft
+                            solution.</a></p>
+                </div>
+                <div class="col-md-7">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h3 class="footer_title">Products</h3>
+                            <ul>
+                                <li><a href="javascript:void()">Geocoding</a></li>
+                                <li><a href="javascript:void()">Maps</a></li>
+                                <li><a href="javascript:void()">Routing</a></li>
+                                <li><a href="javascript:void()">Pricing</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <h3 class="footer_title">COMPANY</h3>
+                            <ul>
+                                <li><a href="javascript:void()">About</a></li>
+                                <li><a href="javascript:void()">Affiliate Partners</a></li>
+                                <li><a href="javascript:void()">Blog</a></li>
+                                <li><a href="javascript:void()">Careers</a></li>
+                                <li><a href="javascript:void()">Contact Us</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <h3 class="footer_title">RESOURCES</h3>
+                            <ul>
+                                <li><a href="javascript:void()">API Documentation</a></li>
+                                <li><a href="javascript:void()">API Status</a></li>
+                                <li><a href="javascript:void()">User Dashboard</a></li>
+                                <li><a href="javascript:void()">Libraries</a></li>
+                                <li><a href="javascript:void()">Help</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script>
+        $("#open_menu").click(function () {
+            $("#overlay_menu").addClass("menu_active");
+        });
+        $("#close").click(function () {
+            $("#overlay_menu").removeClass("menu_active");
+        });
+    </script>
+
+    <script>
+        $('#client_slider').slick({
+            centerMode: true,
+            slidesToShow: 5,
+            arrows: false,
+            autoplay: true,
+            responsive: [
+                {
+                    breakpoint: 768,
+                    settings: {
+                        arrows: false,
+                        centerMode: true,
+                        centerPadding: '40px',
+                        slidesToShow: 3
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        arrows: false,
+                        centerMode: true,
+                        centerPadding: '40px',
+                        slidesToShow: 1
+                    }
+                }
+            ]
+        });
+    </script>
+</body>
+
+</html>

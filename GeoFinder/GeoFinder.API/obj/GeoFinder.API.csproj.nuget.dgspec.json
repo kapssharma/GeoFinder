@@ -1,46 +1,51 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pc\\Documents\\GitHub\\GeoFinder\\GeoFinder\\GeoFinder.API\\GeoFinder.API.csproj": {}
+    "D:\\New folder\\GeoFinder\\GeoFinder\\GeoFinder.API\\GeoFinder.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pc\\Documents\\GitHub\\GeoFinder\\GeoFinder\\GeoFinder.API\\GeoFinder.API.csproj": {
+    "D:\\New folder\\GeoFinder\\GeoFinder\\GeoFinder.API\\GeoFinder.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pc\\Documents\\GitHub\\GeoFinder\\GeoFinder\\GeoFinder.API\\GeoFinder.API.csproj",
+        "projectUniqueName": "D:\\New folder\\GeoFinder\\GeoFinder\\GeoFinder.API\\GeoFinder.API.csproj",
         "projectName": "GeoFinder.API",
-        "projectPath": "C:\\Users\\pc\\Documents\\GitHub\\GeoFinder\\GeoFinder\\GeoFinder.API\\GeoFinder.API.csproj",
-        "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pc\\Documents\\GitHub\\GeoFinder\\GeoFinder\\GeoFinder.API\\obj\\",
+        "projectPath": "D:\\New folder\\GeoFinder\\GeoFinder\\GeoFinder.API\\GeoFinder.API.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "D:\\New folder\\GeoFinder\\GeoFinder\\GeoFinder.API\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\Offline Packages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 21.2.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\ServiceFabricSDK.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Users\\PC\\Documents\\local": {},
           "https://api.nuget.org/v3/index.json": {},
           "https://pkgs.dev.azure.com/fleetautofinance/9d35e68e-cbdc-4b67-b4f3-1a5654600ec8/_packaging/Test/nuget/v3/index.json": {},
           "https://pkgs.dev.azure.com/fleetautofinance/PortalProd/_packaging/Phoenix.Shared/nuget/v3/index.json": {},
           "https://pkgs.dev.azure.com/fleetautofinance/_packaging/Phoenix.Common.Library/nuget/v3/index.json": {},
-          "https://pkgs.dev.azure.com/tf-cloudfabric/_packaging/CloudFabric/nuget/v3/index.json": {},
           "https://www.myget.org/F/applicationinsights-sdk-labs/api/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\pc\\Documents\\GitHub\\GeoFinder\\GeoFinder\\GeoFinder.Data\\GeoFinder.Data.csproj": {
-                "projectPath": "C:\\Users\\pc\\Documents\\GitHub\\GeoFinder\\GeoFinder\\GeoFinder.Data\\GeoFinder.Data.csproj"
+              "D:\\New folder\\GeoFinder\\GeoFinder\\GeoFinder.Data\\GeoFinder.Data.csproj": {
+                "projectPath": "D:\\New folder\\GeoFinder\\GeoFinder\\GeoFinder.Data\\GeoFinder.Data.csproj"
               },
-              "C:\\Users\\pc\\Documents\\GitHub\\GeoFinder\\GeoFinder\\GeoFinder.Model\\GeoFinder.Model.csproj": {
-                "projectPath": "C:\\Users\\pc\\Documents\\GitHub\\GeoFinder\\GeoFinder\\GeoFinder.Model\\GeoFinder.Model.csproj"
+              "D:\\New folder\\GeoFinder\\GeoFinder\\GeoFinder.Model\\GeoFinder.Model.csproj": {
+                "projectPath": "D:\\New folder\\GeoFinder\\GeoFinder\\GeoFinder.Model\\GeoFinder.Model.csproj"
               },
-              "C:\\Users\\pc\\Documents\\GitHub\\GeoFinder\\GeoFinder\\GeoFinder.Utility1\\GeoFinder.Utility1.csproj": {
-                "projectPath": "C:\\Users\\pc\\Documents\\GitHub\\GeoFinder\\GeoFinder\\GeoFinder.Utility1\\GeoFinder.Utility1.csproj"
+              "D:\\New folder\\GeoFinder\\GeoFinder\\GeoFinder.Utility\\GeoFinder.Utility.csproj": {
+                "projectPath": "D:\\New folder\\GeoFinder\\GeoFinder\\GeoFinder.Utility\\GeoFinder.Utility.csproj"
               }
             }
           }
@@ -55,6 +60,28 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "EntityFramework": {
+              "target": "Package",
+              "version": "[6.4.4, )"
+            },
+            "Flurl.Http": {
+              "target": "Package",
+              "version": "[3.2.4, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.7, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.7, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.7, )"
+            },
             "RestSharp": {
               "target": "Package",
               "version": "[108.0.3, )"
@@ -62,6 +89,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
+            },
+            "UAParser": {
+              "target": "Package",
+              "version": "[3.1.47, )"
             }
           },
           "imports": [
@@ -83,41 +114,46 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\pc\\Documents\\GitHub\\GeoFinder\\GeoFinder\\GeoFinder.Data\\GeoFinder.Data.csproj": {
+    "D:\\New folder\\GeoFinder\\GeoFinder\\GeoFinder.Data\\GeoFinder.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pc\\Documents\\GitHub\\GeoFinder\\GeoFinder\\GeoFinder.Data\\GeoFinder.Data.csproj",
+        "projectUniqueName": "D:\\New folder\\GeoFinder\\GeoFinder\\GeoFinder.Data\\GeoFinder.Data.csproj",
         "projectName": "GeoFinder.Data",
-        "projectPath": "C:\\Users\\pc\\Documents\\GitHub\\GeoFinder\\GeoFinder\\GeoFinder.Data\\GeoFinder.Data.csproj",
-        "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pc\\Documents\\GitHub\\GeoFinder\\GeoFinder\\GeoFinder.Data\\obj\\",
+        "projectPath": "D:\\New folder\\GeoFinder\\GeoFinder\\GeoFinder.Data\\GeoFinder.Data.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "D:\\New folder\\GeoFinder\\GeoFinder\\GeoFinder.Data\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\Offline Packages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 21.2.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\ServiceFabricSDK.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Users\\PC\\Documents\\local": {},
           "https://api.nuget.org/v3/index.json": {},
           "https://pkgs.dev.azure.com/fleetautofinance/9d35e68e-cbdc-4b67-b4f3-1a5654600ec8/_packaging/Test/nuget/v3/index.json": {},
           "https://pkgs.dev.azure.com/fleetautofinance/PortalProd/_packaging/Phoenix.Shared/nuget/v3/index.json": {},
           "https://pkgs.dev.azure.com/fleetautofinance/_packaging/Phoenix.Common.Library/nuget/v3/index.json": {},
-          "https://pkgs.dev.azure.com/tf-cloudfabric/_packaging/CloudFabric/nuget/v3/index.json": {},
           "https://www.myget.org/F/applicationinsights-sdk-labs/api/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\pc\\Documents\\GitHub\\GeoFinder\\GeoFinder\\GeoFinder.Model\\GeoFinder.Model.csproj": {
-                "projectPath": "C:\\Users\\pc\\Documents\\GitHub\\GeoFinder\\GeoFinder\\GeoFinder.Model\\GeoFinder.Model.csproj"
+              "D:\\New folder\\GeoFinder\\GeoFinder\\GeoFinder.Model\\GeoFinder.Model.csproj": {
+                "projectPath": "D:\\New folder\\GeoFinder\\GeoFinder\\GeoFinder.Model\\GeoFinder.Model.csproj"
               }
             }
           }
@@ -139,137 +175,22 @@
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.0.7, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "C:\\Users\\pc\\Documents\\GitHub\\GeoFinder\\GeoFinder\\GeoFinder.Model\\GeoFinder.Model.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\pc\\Documents\\GitHub\\GeoFinder\\GeoFinder\\GeoFinder.Model\\GeoFinder.Model.csproj",
-        "projectName": "GeoFinder.Model",
-        "projectPath": "C:\\Users\\pc\\Documents\\GitHub\\GeoFinder\\GeoFinder\\GeoFinder.Model\\GeoFinder.Model.csproj",
-        "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pc\\Documents\\GitHub\\GeoFinder\\GeoFinder\\GeoFinder.Model\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net6.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://pkgs.dev.azure.com/fleetautofinance/9d35e68e-cbdc-4b67-b4f3-1a5654600ec8/_packaging/Test/nuget/v3/index.json": {},
-          "https://pkgs.dev.azure.com/fleetautofinance/PortalProd/_packaging/Phoenix.Shared/nuget/v3/index.json": {},
-          "https://pkgs.dev.azure.com/fleetautofinance/_packaging/Phoenix.Common.Library/nuget/v3/index.json": {},
-          "https://pkgs.dev.azure.com/tf-cloudfabric/_packaging/CloudFabric/nuget/v3/index.json": {},
-          "https://www.myget.org/F/applicationinsights-sdk-labs/api/v3/index.json": {}
-        },
-        "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
-            "projectReferences": {}
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "C:\\Users\\pc\\Documents\\GitHub\\GeoFinder\\GeoFinder\\GeoFinder.Utility1\\GeoFinder.Utility1.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\pc\\Documents\\GitHub\\GeoFinder\\GeoFinder\\GeoFinder.Utility1\\GeoFinder.Utility1.csproj",
-        "projectName": "GeoFinder.Utility1",
-        "projectPath": "C:\\Users\\pc\\Documents\\GitHub\\GeoFinder\\GeoFinder\\GeoFinder.Utility1\\GeoFinder.Utility1.csproj",
-        "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pc\\Documents\\GitHub\\GeoFinder\\GeoFinder\\GeoFinder.Utility1\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net6.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://pkgs.dev.azure.com/fleetautofinance/9d35e68e-cbdc-4b67-b4f3-1a5654600ec8/_packaging/Test/nuget/v3/index.json": {},
-          "https://pkgs.dev.azure.com/fleetautofinance/PortalProd/_packaging/Phoenix.Shared/nuget/v3/index.json": {},
-          "https://pkgs.dev.azure.com/fleetautofinance/_packaging/Phoenix.Common.Library/nuget/v3/index.json": {},
-          "https://pkgs.dev.azure.com/tf-cloudfabric/_packaging/CloudFabric/nuget/v3/index.json": {},
-          "https://www.myget.org/F/applicationinsights-sdk-labs/api/v3/index.json": {}
-        },
-        "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
-            "projectReferences": {
-              "C:\\Users\\pc\\Documents\\GitHub\\GeoFinder\\GeoFinder\\GeoFinder.Data\\GeoFinder.Data.csproj": {
-                "projectPath": "C:\\Users\\pc\\Documents\\GitHub\\GeoFinder\\GeoFinder\\GeoFinder.Data\\GeoFinder.Data.csproj"
-              },
-              "C:\\Users\\pc\\Documents\\GitHub\\GeoFinder\\GeoFinder\\GeoFinder.Model\\GeoFinder.Model.csproj": {
-                "projectPath": "C:\\Users\\pc\\Documents\\GitHub\\GeoFinder\\GeoFinder\\GeoFinder.Model\\GeoFinder.Model.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
-          "dependencies": {
-            "Microsoft.Extensions.Configuration.Abstractions": {
+            },
+            "Microsoft.EntityFrameworkCore.Relational.Design": {
+              "target": "Package",
+              "version": "[1.1.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.7, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.7, )"
+            },
+            "Microsoft.Extensions.Options.DataAnnotations": {
               "target": "Package",
               "version": "[7.0.0, )"
             }
@@ -290,7 +211,161 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\New folder\\GeoFinder\\GeoFinder\\GeoFinder.Model\\GeoFinder.Model.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\New folder\\GeoFinder\\GeoFinder\\GeoFinder.Model\\GeoFinder.Model.csproj",
+        "projectName": "GeoFinder.Model",
+        "projectPath": "D:\\New folder\\GeoFinder\\GeoFinder\\GeoFinder.Model\\GeoFinder.Model.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "D:\\New folder\\GeoFinder\\GeoFinder\\GeoFinder.Model\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\Offline Packages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 21.2.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\ServiceFabricSDK.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Users\\PC\\Documents\\local": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/fleetautofinance/9d35e68e-cbdc-4b67-b4f3-1a5654600ec8/_packaging/Test/nuget/v3/index.json": {},
+          "https://pkgs.dev.azure.com/fleetautofinance/PortalProd/_packaging/Phoenix.Shared/nuget/v3/index.json": {},
+          "https://pkgs.dev.azure.com/fleetautofinance/_packaging/Phoenix.Common.Library/nuget/v3/index.json": {},
+          "https://www.myget.org/F/applicationinsights-sdk-labs/api/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.7, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\New folder\\GeoFinder\\GeoFinder\\GeoFinder.Utility\\GeoFinder.Utility.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\New folder\\GeoFinder\\GeoFinder\\GeoFinder.Utility\\GeoFinder.Utility.csproj",
+        "projectName": "GeoFinder.Utility",
+        "projectPath": "D:\\New folder\\GeoFinder\\GeoFinder\\GeoFinder.Utility\\GeoFinder.Utility.csproj",
+        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
+        "outputPath": "D:\\New folder\\GeoFinder\\GeoFinder\\GeoFinder.Utility\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\Offline Packages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 21.2.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\ServiceFabricSDK.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Users\\PC\\Documents\\local": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/fleetautofinance/9d35e68e-cbdc-4b67-b4f3-1a5654600ec8/_packaging/Test/nuget/v3/index.json": {},
+          "https://pkgs.dev.azure.com/fleetautofinance/PortalProd/_packaging/Phoenix.Shared/nuget/v3/index.json": {},
+          "https://pkgs.dev.azure.com/fleetautofinance/_packaging/Phoenix.Common.Library/nuget/v3/index.json": {},
+          "https://www.myget.org/F/applicationinsights-sdk-labs/api/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\New folder\\GeoFinder\\GeoFinder\\GeoFinder.Data\\GeoFinder.Data.csproj": {
+                "projectPath": "D:\\New folder\\GeoFinder\\GeoFinder\\GeoFinder.Data\\GeoFinder.Data.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.7, )"
+            },
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "UAParser": {
+              "target": "Package",
+              "version": "[3.1.47, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

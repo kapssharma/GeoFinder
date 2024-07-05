@@ -2,7 +2,7 @@
 {
     public class GetCountries
     {
-        public Guid CountryID { get; set; }
+        public int CountryID { get; set; }
 
         public string CountryName { get; set;}
     }

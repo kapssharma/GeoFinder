@@ -32,8 +32,17 @@ namespace GeoFinder.Utility.Services.Implementation
         }
         public async Task<BaseResponse> SignUp(SignUpViewModel signUpViewModel)
         {
-            var response = await _geoFinderRepository.SignUp(signUpViewModel);
-            return response;
+            try
+            {
+                var response = await _geoFinderRepository.SignUp(signUpViewModel);
+                return response;
+            }
+            catch (Exception ex)
+            {
+
+                BaseResponse signUpResponse = new BaseResponse();
+                return signUpResponse;
+            }
         }
         public async Task<SignInResponse> SignIn(Login login)
         {

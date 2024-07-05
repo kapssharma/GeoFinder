@@ -32,6 +32,37 @@
           "buildTransitive/netcoreapp3.0/EntityFramework.targets": {}
         }
       },
+      "Flurl/3.0.6": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Flurl.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Flurl.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Flurl.Http/3.2.4": {
+        "type": "package",
+        "dependencies": {
+          "Flurl": "3.0.6",
+          "Newtonsoft.Json": "12.0.2",
+          "System.Text.Encoding.CodePages": "4.5.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/Flurl.Http.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Flurl.Http.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Humanizer.Core/2.8.26": {
         "type": "package",
         "compile": {
@@ -659,6 +690,19 @@
           "System.Threading.Timer": "4.3.0",
           "System.Xml.ReaderWriter": "4.3.0",
           "System.Xml.XDocument": "4.3.0"
+        }
+      },
+      "Newtonsoft.Json/12.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
         }
       },
       "RestSharp/108.0.3": {
@@ -2081,7 +2125,7 @@
           "Microsoft.NETCore.Platforms": "3.1.0"
         },
         "compile": {
-          "lib/netstandard2.0/_._": {
+          "lib/netstandard2.0/System.Text.Encoding.CodePages.dll": {
             "related": ".xml"
           }
         },
@@ -2257,6 +2301,19 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
+      "UAParser/3.1.47": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp2.0/UAParser.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netcoreapp2.0/UAParser.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "GeoFinder.Data/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -2288,19 +2345,20 @@
           "bin/placeholder/GeoFinder.Model.dll": {}
         }
       },
-      "GeoFinder.Utility1/1.0.0": {
+      "GeoFinder.Utility/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "GeoFinder.Data": "1.0.0",
           "Microsoft.EntityFrameworkCore": "6.0.7",
-          "Microsoft.Extensions.Configuration.Abstractions": "7.0.0"
+          "Microsoft.Extensions.Configuration.Abstractions": "7.0.0",
+          "UAParser": "3.1.47"
         },
         "compile": {
-          "bin/placeholder/GeoFinder.Utility1.dll": {}
+          "bin/placeholder/GeoFinder.Utility.dll": {}
         },
         "runtime": {
-          "bin/placeholder/GeoFinder.Utility1.dll": {}
+          "bin/placeholder/GeoFinder.Utility.dll": {}
         }
       }
     }
@@ -2361,6 +2419,42 @@
         "tools/netcoreapp3.0/any/ef6.dll",
         "tools/netcoreapp3.0/any/ef6.pdb",
         "tools/netcoreapp3.0/any/ef6.runtimeconfig.json"
+      ]
+    },
+    "Flurl/3.0.6": {
+      "sha512": "XMIlB/tJ4nTYF2+79xDsnnlgbXHpKyizKX2fffrECekI6pEsa9MSLzf5tPVMdLy4k4AcJPLs356Sa2Le5VRDCw==",
+      "type": "package",
+      "path": "flurl/3.0.6",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "flurl.3.0.6.nupkg.sha512",
+        "flurl.nuspec",
+        "icon.png",
+        "lib/net461/Flurl.dll",
+        "lib/net461/Flurl.xml",
+        "lib/net472/Flurl.dll",
+        "lib/net472/Flurl.xml",
+        "lib/netstandard2.0/Flurl.dll",
+        "lib/netstandard2.0/Flurl.xml"
+      ]
+    },
+    "Flurl.Http/3.2.4": {
+      "sha512": "Me9Vm4Lm21vt/pbR0G2Dww/ZOjJgh6mB2FiH28aiUYStJD10ZecDp8jxg2zKxcy6lnkvLm99pjG4yC/k7a/d8w==",
+      "type": "package",
+      "path": "flurl.http/3.2.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "flurl.http.3.2.4.nupkg.sha512",
+        "flurl.http.nuspec",
+        "icon.png",
+        "lib/net461/Flurl.Http.dll",
+        "lib/net461/Flurl.Http.xml",
+        "lib/net472/Flurl.Http.dll",
+        "lib/net472/Flurl.Http.xml",
+        "lib/netstandard2.0/Flurl.Http.dll",
+        "lib/netstandard2.0/Flurl.Http.xml"
       ]
     },
     "Humanizer.Core/2.8.26": {
@@ -3247,6 +3341,36 @@
         "dotnet_library_license.txt",
         "netstandard.library.1.6.1.nupkg.sha512",
         "netstandard.library.nuspec"
+      ]
+    },
+    "Newtonsoft.Json/12.0.2": {
+      "sha512": "rTK0s2EKlfHsQsH6Yx2smvcTCeyoDNgCW7FEYyV01drPlh2T243PR2DiDXqtC5N4GDm4Ma/lkxfW5a/4793vbA==",
+      "type": "package",
+      "path": "newtonsoft.json/12.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "newtonsoft.json.12.0.2.nupkg.sha512",
+        "newtonsoft.json.nuspec"
       ]
     },
     "RestSharp/108.0.3": {
@@ -7232,6 +7356,33 @@
         "system.xml.xdocument.nuspec"
       ]
     },
+    "UAParser/3.1.47": {
+      "sha512": "I68Jl/Vs5RQZdz9BbmYtnXgujg0jVd61LhKbyNZOCm9lBxZFGxLbiQo6yFj21VYi7DzPvEvrVOmeC6v41AoLfw==",
+      "type": "package",
+      "path": "uaparser/3.1.47",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net20/UAParser.dll",
+        "lib/net20/UAParser.xml",
+        "lib/net35/UAParser.dll",
+        "lib/net35/UAParser.xml",
+        "lib/net40/UAParser.dll",
+        "lib/net40/UAParser.xml",
+        "lib/net45/UAParser.dll",
+        "lib/net45/UAParser.xml",
+        "lib/netcoreapp2.0/UAParser.dll",
+        "lib/netcoreapp2.0/UAParser.xml",
+        "lib/netstandard1.0/UAParser.dll",
+        "lib/netstandard1.0/UAParser.xml",
+        "lib/netstandard1.3/UAParser.dll",
+        "lib/netstandard1.3/UAParser.xml",
+        "lib/netstandard1.6/UAParser.dll",
+        "lib/netstandard1.6/UAParser.xml",
+        "uaparser.3.1.47.nupkg.sha512",
+        "uaparser.nuspec"
+      ]
+    },
     "GeoFinder.Data/1.0.0": {
       "type": "project",
       "path": "../GeoFinder.Data/GeoFinder.Data.csproj",
@@ -7242,23 +7393,25 @@
       "path": "../GeoFinder.Model/GeoFinder.Model.csproj",
       "msbuildProject": "../GeoFinder.Model/GeoFinder.Model.csproj"
     },
-    "GeoFinder.Utility1/1.0.0": {
+    "GeoFinder.Utility/1.0.0": {
       "type": "project",
-      "path": "../GeoFinder.Utility1/GeoFinder.Utility1.csproj",
-      "msbuildProject": "../GeoFinder.Utility1/GeoFinder.Utility1.csproj"
+      "path": "../GeoFinder.Utility/GeoFinder.Utility.csproj",
+      "msbuildProject": "../GeoFinder.Utility/GeoFinder.Utility.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "EntityFramework >= 6.4.4",
+      "Flurl.Http >= 3.2.4",
       "GeoFinder.Data >= 1.0.0",
       "GeoFinder.Model >= 1.0.0",
-      "GeoFinder.Utility1 >= 1.0.0",
+      "GeoFinder.Utility >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 6.0.7",
       "Microsoft.EntityFrameworkCore.Design >= 6.0.7",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.7",
       "RestSharp >= 108.0.3",
-      "Swashbuckle.AspNetCore >= 6.2.3"
+      "Swashbuckle.AspNetCore >= 6.2.3",
+      "UAParser >= 3.1.47"
     ]
   },
   "packageFolders": {
@@ -7268,11 +7421,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\GeoFinder\\GeoFinder\\GeoFinder.API\\GeoFinder.API.csproj",
+      "projectUniqueName": "D:\\New folder\\GeoFinder\\GeoFinder\\GeoFinder.API\\GeoFinder.API.csproj",
       "projectName": "GeoFinder.API",
-      "projectPath": "D:\\GeoFinder\\GeoFinder\\GeoFinder.API\\GeoFinder.API.csproj",
+      "projectPath": "D:\\New folder\\GeoFinder\\GeoFinder\\GeoFinder.API\\GeoFinder.API.csproj",
       "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-      "outputPath": "D:\\GeoFinder\\GeoFinder\\GeoFinder.API\\obj\\",
+      "outputPath": "D:\\New folder\\GeoFinder\\GeoFinder\\GeoFinder.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\Offline Packages"
@@ -7288,26 +7441,25 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\Microsoft SDKs\\Service Fabric\\packages": {},
+        "C:\\Users\\PC\\Documents\\local": {},
         "https://api.nuget.org/v3/index.json": {},
         "https://pkgs.dev.azure.com/fleetautofinance/9d35e68e-cbdc-4b67-b4f3-1a5654600ec8/_packaging/Test/nuget/v3/index.json": {},
         "https://pkgs.dev.azure.com/fleetautofinance/PortalProd/_packaging/Phoenix.Shared/nuget/v3/index.json": {},
         "https://pkgs.dev.azure.com/fleetautofinance/_packaging/Phoenix.Common.Library/nuget/v3/index.json": {},
-        "https://pkgs.dev.azure.com/tf-cloudfabric/_packaging/CloudFabric/nuget/v3/index.json": {},
         "https://www.myget.org/F/applicationinsights-sdk-labs/api/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\GeoFinder\\GeoFinder\\GeoFinder.Data\\GeoFinder.Data.csproj": {
-              "projectPath": "D:\\GeoFinder\\GeoFinder\\GeoFinder.Data\\GeoFinder.Data.csproj"
+            "D:\\New folder\\GeoFinder\\GeoFinder\\GeoFinder.Data\\GeoFinder.Data.csproj": {
+              "projectPath": "D:\\New folder\\GeoFinder\\GeoFinder\\GeoFinder.Data\\GeoFinder.Data.csproj"
             },
-            "D:\\GeoFinder\\GeoFinder\\GeoFinder.Model\\GeoFinder.Model.csproj": {
-              "projectPath": "D:\\GeoFinder\\GeoFinder\\GeoFinder.Model\\GeoFinder.Model.csproj"
+            "D:\\New folder\\GeoFinder\\GeoFinder\\GeoFinder.Model\\GeoFinder.Model.csproj": {
+              "projectPath": "D:\\New folder\\GeoFinder\\GeoFinder\\GeoFinder.Model\\GeoFinder.Model.csproj"
             },
-            "D:\\GeoFinder\\GeoFinder\\GeoFinder.Utility1\\GeoFinder.Utility1.csproj": {
-              "projectPath": "D:\\GeoFinder\\GeoFinder\\GeoFinder.Utility1\\GeoFinder.Utility1.csproj"
+            "D:\\New folder\\GeoFinder\\GeoFinder\\GeoFinder.Utility\\GeoFinder.Utility.csproj": {
+              "projectPath": "D:\\New folder\\GeoFinder\\GeoFinder\\GeoFinder.Utility\\GeoFinder.Utility.csproj"
             }
           }
         }
@@ -7325,6 +7477,10 @@
           "EntityFramework": {
             "target": "Package",
             "version": "[6.4.4, )"
+          },
+          "Flurl.Http": {
+            "target": "Package",
+            "version": "[3.2.4, )"
           },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
@@ -7347,6 +7503,10 @@
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[6.2.3, )"
+          },
+          "UAParser": {
+            "target": "Package",
+            "version": "[3.1.47, )"
           }
         },
         "imports": [

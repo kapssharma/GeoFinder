@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.32802.440
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeoFinder.API", "GeoFinder.API\GeoFinder.API.csproj", "{756709F3-7A95-40DE-8DFC-89D8BB4BE0C7}"
 EndProject
@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeoFinder.Data", "GeoFinder
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "GeoFinder.Database", "GeoFinder.Database\GeoFinder.Database.sqlproj", "{66168C53-261B-4813-A96B-4F39E5DE928D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeoFinder.Utility", "GeoFinder.Utility1\GeoFinder.Utility.csproj", "{FF29BDF4-20C0-4367-8989-DC6F1F83B216}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeoFinder.Utility", "GeoFinder.Utility\GeoFinder.Utility.csproj", "{ECF726BE-762F-4B39-9FFD-43DEE19D064C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,10 +37,10 @@ Global
 		{66168C53-261B-4813-A96B-4F39E5DE928D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66168C53-261B-4813-A96B-4F39E5DE928D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{66168C53-261B-4813-A96B-4F39E5DE928D}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{FF29BDF4-20C0-4367-8989-DC6F1F83B216}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FF29BDF4-20C0-4367-8989-DC6F1F83B216}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FF29BDF4-20C0-4367-8989-DC6F1F83B216}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FF29BDF4-20C0-4367-8989-DC6F1F83B216}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECF726BE-762F-4B39-9FFD-43DEE19D064C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECF726BE-762F-4B39-9FFD-43DEE19D064C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECF726BE-762F-4B39-9FFD-43DEE19D064C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECF726BE-762F-4B39-9FFD-43DEE19D064C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

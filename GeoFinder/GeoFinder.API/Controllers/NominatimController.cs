@@ -14,12 +14,14 @@ namespace GeoFinder.API.Controllers
       public class NominatimController : Controller
       {
           private IConfiguration configuration;
-          public readonly ILogService _logService;
-        public NominatimController(IConfiguration _configuration, ILogService logService)
+        private readonly ILogService _logService;
+        private readonly IGeoFinderService _geoFinderService;
+        public NominatimController(IConfiguration _configuration, ILogService logService, IGeoFinderService geoFinderService)
         {
             configuration = _configuration;
             _logService = logService;
-          }
+            _geoFinderService = geoFinderService;
+        }
 
         [HttpGet]
         [Route("Search")]
@@ -34,6 +36,9 @@ namespace GeoFinder.API.Controllers
 
                 if (string.IsNullOrEmpty(format))
                     throw new BadParameterException("input parameters are not correct for formate");
+
+                
+
                 var contentResponse = "";
                 string apiEndPoint = this.configuration.GetSection("AppSettings")["NominatimAPIEndPoint"];
                 var searchUrl = string.Format(apiEndPoint + "search?q={0}&format={1}", search, format);

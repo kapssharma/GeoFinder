@@ -55,6 +55,7 @@ builder.Services.AddScoped<IGeoFinderRepository, GeoFinderRepository>();
 builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddScoped<ILogService, LogService>();
 builder.Services.AddScoped<ILogRepository, LogRepository>();
+builder.Services.AddScoped<ISearchService, SearchService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -29,6 +29,7 @@ namespace GeoFinder.Utility.Services.Implementation
         {
             _logRepository = logRepository;
         }
+
         public async Task AddSearchLog(string? request, string? response, string? endPoint, string? search, string? format, string? browserType, string? ipAddress)
         {
             try

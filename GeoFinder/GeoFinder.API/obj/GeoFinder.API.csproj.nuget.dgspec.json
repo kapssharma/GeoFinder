@@ -84,11 +84,11 @@
             },
             "RestSharp": {
               "target": "Package",
-              "version": "[108.0.3, )"
+              "version": "[111.3.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.2.3, )"
+              "version": "[6.6.2, )"
             },
             "UAParser": {
               "target": "Package",
@@ -343,6 +343,18 @@
             "Microsoft.Extensions.Configuration.Abstractions": {
               "target": "Package",
               "version": "[7.0.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
+            "RestSharp": {
+              "target": "Package",
+              "version": "[111.3.0, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.6.2, )"
             },
             "UAParser": {
               "target": "Package",

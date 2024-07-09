@@ -1,11 +1,8 @@
 ﻿using UAParser;
 using GeoFinder.Model;
 using GeoFinder.Utility.Services.Interface;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RestSharp;
-using System.Net.Http.Headers;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace GeoFinder.API.Controllers
 {
@@ -15,62 +12,74 @@ namespace GeoFinder.API.Controllers
       {
           private IConfiguration configuration;
         private readonly ILogService _logService;
-        private readonly IGeoFinderService _geoFinderService;
-        public NominatimController(IConfiguration _configuration, ILogService logService, IGeoFinderService geoFinderService)
+        private readonly ISearchService _searchService;
+
+        public NominatimController(IConfiguration _configuration, ILogService logService, ISearchService searchService)
         {
             configuration = _configuration;
             _logService = logService;
-            _geoFinderService = geoFinderService;
+            _searchService = searchService;
         }
+        #region old search
+        //[HttpGet]
+        //[Route("Search")]
+        //public async Task<IActionResult> Search(string? search, string? format)
+        //{
+        //    try
+        //    {
+
+
+        //        if (string.IsNullOrEmpty(search))
+        //            throw new BadParameterException("input parameters are not correct for search");
+
+        //        if (string.IsNullOrEmpty(format))
+        //            throw new BadParameterException("input parameters are not correct for formate");
+
+
+
+        //        var contentResponse = "";
+        //        string apiEndPoint = this.configuration.GetSection("AppSettings")["NominatimAPIEndPoint"];
+        //        var searchUrl = string.Format(apiEndPoint + "search?q={0}&format={1}", search, format);
+        //        var restClient = new RestClient(searchUrl);
+        //        var request = new RestRequest(searchUrl, Method.Get);
+        //        var response = await restClient.ExecuteAsync(request);
+
+
+
+        //        if (response.IsSuccessful)
+        //        {
+        //            SearchLog searched = new SearchLog();
+        //            var IPAddress = HttpContext.Connection.LocalIpAddress?.ToString();
+        //            var userAgent = HttpContext.Request.Headers["User-Agent"];
+        //            var uaParser = Parser.GetDefault();
+        //            string? BrowserType = uaParser.Parse(userAgent).UserAgent.Family;
+
+        //            await _logService.AddSearchLog(searchUrl, response.Content, apiEndPoint, search, format, BrowserType, IPAddress);
+
+        //            contentResponse = response.Content;
+        //        }
+        //        else
+        //        {
+        //            throw new HttpRequestException(response.ErrorMessage);
+        //        }
+        //        return Ok(contentResponse);
+        //    }
+        //    catch(Exception ex)
+        //    { 
+        //        return BadRequest();
+        //    }
+        //}
+        #endregion
 
         [HttpGet]
         [Route("Search")]
-        public async Task<IActionResult> Search(string? search, string? format)
+        public async Task<IActionResult> Search(string? search)
         {
-            try
-            {
-
-
-                if (string.IsNullOrEmpty(search))
-                    throw new BadParameterException("input parameters are not correct for search");
-
-                if (string.IsNullOrEmpty(format))
-                    throw new BadParameterException("input parameters are not correct for formate");
-
-                
-
-                var contentResponse = "";
-                string apiEndPoint = this.configuration.GetSection("AppSettings")["NominatimAPIEndPoint"];
-                var searchUrl = string.Format(apiEndPoint + "search?q={0}&format={1}", search, format);
-                var restClient = new RestClient(searchUrl);
-                var request = new RestRequest(searchUrl, Method.Get);
-                var response = await restClient.ExecuteAsync(request);
-
-                
-
-                if (response.IsSuccessful)
-                {
-                    SearchLog searched = new SearchLog();
-                    var IPAddress = HttpContext.Connection.LocalIpAddress?.ToString();
-                    var userAgent = HttpContext.Request.Headers["User-Agent"];
-                    var uaParser = Parser.GetDefault();
-                    string? BrowserType = uaParser.Parse(userAgent).UserAgent.Family;
-
-                    await _logService.AddSearchLog(searchUrl, response.Content, apiEndPoint, search, format, BrowserType, IPAddress);
-
-                    contentResponse = response.Content;
-                }
-                else
-                {
-                    throw new HttpRequestException(response.ErrorMessage);
-                }
-                return Ok(contentResponse);
-            }
-            catch(Exception ex)
-            { 
-                return BadRequest();
-            }
+            var result = await _searchService.SearchAsync(search);
+            return Ok(result.Select(x=>x.Display_Name));
         }
+
+        
 
         [HttpGet]
         [Route("Status")]
@@ -110,7 +119,6 @@ namespace GeoFinder.API.Controllers
             var restClient = new RestClient(reverseURL);
             var request = new RestRequest(reverseURL, Method.Get);
             var response = await restClient.ExecuteAsync(request);
-
             if (response.IsSuccessful)
             {
                 SearchLog searched = new SearchLog();
@@ -128,6 +136,7 @@ namespace GeoFinder.API.Controllers
                 throw new HttpRequestException(response.ErrorMessage);
             }
             return Ok(contentResponse);
+            
         }
 
         [HttpGet]
